@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   cardTitle: { fontSize: FONTS.sizes.sm, fontWeight: '900', color: COLORS.black, marginBottom: SPACING.xs },
   cardText: { fontSize: FONTS.sizes.sm, color: COLORS.black },
   time: { alignSelf: 'flex-end', fontSize: FONTS.sizes.xs, color: COLORS.black, marginTop: SPACING.md },
-  dashboardBtn: { position: 'absolute', right: SPACING.xl, bottom: SPACING.xl, flexDirection: 'row', alignItems: 'center', backgroundColor: '#078E18', borderRadius: RADIUS.sm, paddingHorizontal: SPACING.md, paddingVertical: SPACING.sm },
+  dashboardBtn: { position: 'absolute', right: SPACING.xl, bottom: SPACING.xl, flexDirection: 'row', alignItems: 'center', backgroundColor: COLORS.primary, borderRadius: RADIUS.sm, paddingHorizontal: SPACING.md, paddingVertical: SPACING.sm },
   dashboardText: { color: COLORS.white, fontWeight: '800', marginRight: SPACING.sm },
 });
 

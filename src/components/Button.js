@@ -52,7 +52,7 @@ const Button = ({
 const styles = StyleSheet.create({
   base: {
     height: 56,
-    borderRadius: RADIUS.xl,
+    borderRadius: RADIUS.md,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: SPACING.lg,

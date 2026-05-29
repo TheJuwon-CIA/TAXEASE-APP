@@ -47,9 +47,9 @@ const styles = StyleSheet.create({
   content: { paddingHorizontal: SPACING.lg, paddingTop: SPACING.xl, paddingBottom: 120 },
   pill: {
     alignSelf: 'center',
-    backgroundColor: '#078E18',
+    backgroundColor: COLORS.primary,
     color: COLORS.white,
-    fontSize: 32,
+    fontSize: FONTS.sizes.xl,
     fontWeight: '700',
     paddingVertical: SPACING.md,
     width: '75%',
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   row: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: SPACING.lg },
   sectionTitle: { fontSize: 27, fontWeight: '900', color: COLORS.black },
   toggle: { flexDirection: 'row', borderRadius: RADIUS.sm, overflow: 'hidden', backgroundColor: '#67BD70' },
-  toggleActive: { backgroundColor: '#078E18', color: COLORS.white, fontSize: FONTS.sizes.lg, paddingHorizontal: SPACING.md, paddingVertical: SPACING.sm },
+  toggleActive: { backgroundColor: COLORS.primary, color: COLORS.white, fontSize: FONTS.sizes.lg, paddingHorizontal: SPACING.md, paddingVertical: SPACING.sm },
   toggleInactive: { color: COLORS.white, fontSize: FONTS.sizes.lg, paddingHorizontal: SPACING.md, paddingVertical: SPACING.sm },
   amountBlock: { marginBottom: SPACING.lg },
   amountLabel: { fontSize: FONTS.sizes.xl, fontWeight: '700', color: COLORS.black, marginBottom: SPACING.sm },
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     height: 88,
     borderWidth: 3,
     borderColor: COLORS.black,
-    borderRadius: RADIUS.xl,
+    borderRadius: RADIUS.md,
     paddingHorizontal: SPACING.xl,
     fontSize: FONTS.sizes.xl,
     color: COLORS.black,
@@ -78,13 +78,13 @@ const styles = StyleSheet.create({
   continueBtn: {
     alignSelf: 'center',
     width: '78%',
-    backgroundColor: '#078E18',
+    backgroundColor: COLORS.primary,
     borderRadius: RADIUS.md,
     paddingVertical: SPACING.lg,
     alignItems: 'center',
     marginTop: SPACING.xl,
   },
-  continueText: { color: COLORS.white, fontSize: 38, fontWeight: '700' },
+  continueText: { color: COLORS.white, fontSize: FONTS.sizes.xxl, fontWeight: '700' },
 });
 
 export default CalculatorScreen;

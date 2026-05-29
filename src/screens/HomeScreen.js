@@ -31,7 +31,7 @@ const HomeScreen = ({ navigation }) => {
             <Text style={styles.name}>John Doe</Text>
           </View>
           <TouchableOpacity style={styles.bell} onPress={() => navigation.navigate('Notifications')}>
-            <Ionicons name="notifications" size={30} color="#078E18" />
+            <Ionicons name="notifications" size={30} color={COLORS.primary} />
             <View style={styles.badge}><Text style={styles.badgeText}>1</Text></View>
           </TouchableOpacity>
         </View>
@@ -85,13 +85,13 @@ const styles = StyleSheet.create({
     width: 54,
     height: 54,
     borderRadius: 27,
-    backgroundColor: '#078E18',
+    backgroundColor: COLORS.primary,
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: SPACING.sm,
   },
   morning: { fontSize: FONTS.sizes.xs, color: COLORS.textMedium },
-  name: { fontSize: FONTS.sizes.lg, color: '#253041', fontWeight: '800' },
+  name: { fontSize: FONTS.sizes.lg, color: COLORS.textDark, fontWeight: '800' },
   bell: { marginLeft: 'auto' },
   badge: {
     position: 'absolute',
@@ -107,15 +107,15 @@ const styles = StyleSheet.create({
   badgeText: { color: COLORS.white, fontSize: 9, fontWeight: '700' },
   hero: { fontSize: FONTS.sizes.xl, fontWeight: '700', color: COLORS.black, marginBottom: SPACING.xl },
   salaryPanel: { minHeight: 210, padding: SPACING.lg, marginBottom: SPACING.md },
-  salaryTitle: { fontSize: 28, fontWeight: '900', color: '#253041' },
-  salarySub: { fontSize: 23, color: '#253041', lineHeight: 30 },
+  salaryTitle: { fontSize: FONTS.sizes.xl, fontWeight: '900', color: COLORS.textDark },
+  salarySub: { fontSize: FONTS.sizes.lg, color: COLORS.textDark, lineHeight: 30 },
   salaryBtn: {
     position: 'absolute',
     right: SPACING.md,
     bottom: SPACING.md,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#078E18',
+    backgroundColor: COLORS.primary,
     borderRadius: RADIUS.sm,
     paddingHorizontal: SPACING.sm,
     paddingVertical: SPACING.sm,
@@ -130,15 +130,15 @@ const styles = StyleSheet.create({
     ...SHADOWS.medium,
   },
   cardIcon: { position: 'absolute', right: 20, bottom: 8 },
-  cardTitle: { fontSize: 26, fontWeight: '900', color: '#253041' },
-  cardSubtitle: { fontSize: FONTS.sizes.xl, color: '#253041', maxWidth: '70%', lineHeight: 28 },
+  cardTitle: { fontSize: FONTS.sizes.xl, fontWeight: '900', color: COLORS.textDark },
+  cardSubtitle: { fontSize: FONTS.sizes.lg, color: COLORS.textDark, maxWidth: '70%', lineHeight: 28 },
   cardBtn: {
     position: 'absolute',
     right: SPACING.md,
     bottom: SPACING.md,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#078E18',
+    backgroundColor: COLORS.primary,
     borderRadius: RADIUS.sm,
     paddingHorizontal: SPACING.md,
     paddingVertical: SPACING.sm,

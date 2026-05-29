@@ -1,19 +1,20 @@
 export const COLORS = {
-  primary: '#1A7A1A',       // main dark green
-  primaryLight: '#2DB82D',  // bright green for buttons
-  primaryDark: '#0D5C0D',   // deep green for headings
-  secondary: '#112D11',     // very dark green text
+  primary: '#028A07',
+  primaryLight: '#028A07',
+  primaryDark: '#026805',
+  secondary: '#1F2937',
+  systemInfo: '#F3B24E',
   white: '#FFFFFF',
   black: '#000000',
   background: '#FFFFFF',
   inputBg: '#F5F5F5',
   inputBorder: '#DDDDDD',
   placeholder: '#AAAAAA',
-  textDark: '#1C1C1C',
-  textMedium: '#444444',
+  textDark: '#1F2937',
+  textMedium: '#1F2937',
   textLight: '#888888',
-  error: '#E53935',
-  success: '#1A7A1A',
+  error: '#FF383C',
+  success: '#028A07',
   gray100: '#F5F5F5',
   gray200: '#EEEEEE',
   gray300: '#DDDDDD',
@@ -27,13 +28,14 @@ export const FONTS = {
   medium: 'System',
   bold: 'System',
   sizes: {
-    xs: 11,
-    sm: 13,
-    md: 15,
-    lg: 17,
-    xl: 20,
-    xxl: 24,
-    xxxl: 30,
+    tiny: 7,
+    xs: 9,
+    sm: 12,
+    md: 16,
+    lg: 21,
+    xl: 27,
+    xxl: 36,
+    xxxl: 36,
     display: 36,
   },
 };
@@ -44,15 +46,19 @@ export const SPACING = {
   md: 16,
   lg: 24,
   xl: 32,
+  xl2: 40,
   xxl: 48,
   xxxl: 64,
+  huge: 80,
+  giant: 96,
+  max: 112,
 };
 
 export const RADIUS = {
   sm: 8,
-  md: 12,
+  md: 16,
   lg: 16,
-  xl: 24,
+  xl: 16,
   full: 9999,
 };
 

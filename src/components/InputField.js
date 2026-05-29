@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderColor: COLORS.inputBorder,
-    borderRadius: RADIUS.md,
+    borderRadius: RADIUS.sm,
     backgroundColor: COLORS.white,
     paddingHorizontal: SPACING.md,
     height: 54,

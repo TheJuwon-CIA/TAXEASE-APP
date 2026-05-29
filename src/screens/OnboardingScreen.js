@@ -55,7 +55,7 @@ const SLIDES = [
 const IllustrationPlaceholder = ({ type, size }) => {
   const colors = {
     learn: '#4A90D9',
-    pay: '#E53935',
+    pay: COLORS.error,
     receipts: '#8BC34A',
   };
   const icons = {
