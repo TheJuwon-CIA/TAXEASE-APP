@@ -5,14 +5,12 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
-  Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import InputField from '../components/InputField';
 import Button from '../components/Button';
 import { COLORS, FONTS, SPACING } from '../constants/theme';
-import { authAPI } from '../services/api';
 
 const RULES = [
   { label: 'At least 8 characters', test: (p) => p.length >= 8 },
@@ -31,23 +29,9 @@ const CreateNewPasswordScreen = ({ navigation, route }) => {
   const passwordsMatch = password && password === confirm;
 
   const handleReset = async () => {
-    if (!allRulesPassed) {
-      Alert.alert('Weak Password', 'Please meet all password requirements.');
-      return;
-    }
-    if (!passwordsMatch) {
-      Alert.alert('Mismatch', 'Passwords do not match.');
-      return;
-    }
     setLoading(true);
-    try {
-      await authAPI.resetPassword(email, code, password);
-      navigation.navigate('ResetSuccess');
-    } catch (err) {
-      Alert.alert('Error', err?.message || 'Could not reset password.');
-    } finally {
-      setLoading(false);
-    }
+    navigation.navigate('ResetSuccess');
+    setLoading(false);
   };
 
   return (
@@ -90,6 +74,7 @@ const CreateNewPasswordScreen = ({ navigation, route }) => {
           leftIcon={
             <Ionicons name="lock-closed-outline" size={18} color={COLORS.gray500} />
           }
+          style={styles.input}
         />
 
         {/* Rules checklist */}
@@ -120,7 +105,6 @@ const CreateNewPasswordScreen = ({ navigation, route }) => {
           title="Reset Password"
           onPress={handleReset}
           loading={loading}
-          disabled={!allRulesPassed || !passwordsMatch}
           style={styles.btn}
         />
       </ScrollView>

@@ -4,14 +4,12 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import OTPInput from '../components/OTPInput';
 import Button from '../components/Button';
 import { COLORS, FONTS, SPACING } from '../constants/theme';
-import { authAPI } from '../services/api';
 
 const ConfirmEmailScreen = ({ navigation, route }) => {
   const email = route?.params?.email || 'example@gmail.com';
@@ -19,28 +17,13 @@ const ConfirmEmailScreen = ({ navigation, route }) => {
   const [loading, setLoading] = useState(false);
 
   const handleContinue = async () => {
-    if (otp.length < 4) {
-      Alert.alert('Error', 'Please enter the 4-digit code.');
-      return;
-    }
     setLoading(true);
-    try {
-      await authAPI.confirmEmail(email, otp);
-      navigation.navigate('AccountSuccess');
-    } catch (err) {
-      Alert.alert('Invalid Code', err?.message || 'The code you entered is invalid.');
-    } finally {
-      setLoading(false);
-    }
+    navigation.navigate('AccountSuccess');
+    setLoading(false);
   };
 
   const handleResend = async () => {
-    try {
-      await authAPI.resendCode(email);
-      Alert.alert('Code Sent', 'A new code has been sent to your email.');
-    } catch {
-      Alert.alert('Error', 'Could not resend code. Please try again.');
-    }
+    setOtp('');
   };
 
   return (

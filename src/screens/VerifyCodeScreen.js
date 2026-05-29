@@ -4,14 +4,12 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import OTPInput from '../components/OTPInput';
 import Button from '../components/Button';
-import { COLORS, FONTS, SPACING, RADIUS } from '../constants/theme';
-import { authAPI } from '../services/api';
+import { COLORS, FONTS, SPACING } from '../constants/theme';
 
 const VerifyCodeScreen = ({ navigation, route }) => {
   const email = route?.params?.email || 'e*****@email.com';
@@ -21,28 +19,13 @@ const VerifyCodeScreen = ({ navigation, route }) => {
   const [loading, setLoading] = useState(false);
 
   const handleVerify = async () => {
-    if (otp.length < 6) {
-      Alert.alert('Error', 'Please enter the full 6-digit code.');
-      return;
-    }
     setLoading(true);
-    try {
-      await authAPI.verifyResetCode(email, otp);
-      navigation.navigate('CreateNewPassword', { email, code: otp });
-    } catch (err) {
-      Alert.alert('Invalid Code', err?.message || 'The code is incorrect or expired.');
-    } finally {
-      setLoading(false);
-    }
+    navigation.navigate('CreateNewPassword', { email, code: otp || '000000' });
+    setLoading(false);
   };
 
   const handleResend = async () => {
-    try {
-      await authAPI.forgotPassword(email);
-      Alert.alert('Code Resent', 'A new code has been sent to your email.');
-    } catch {
-      Alert.alert('Error', 'Could not resend code.');
-    }
+    setOtp('');
   };
 
   return (

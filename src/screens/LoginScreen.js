@@ -5,14 +5,12 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
-  Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import InputField from '../components/InputField';
 import Button from '../components/Button';
-import { COLORS, FONTS, SPACING, RADIUS } from '../constants/theme';
-import { authAPI } from '../services/api';
+import { COLORS, FONTS, SPACING } from '../constants/theme';
 import { useAuth } from '../context/AuthContext';
 
 const LoginScreen = ({ navigation }) => {
@@ -24,31 +22,23 @@ const LoginScreen = ({ navigation }) => {
 
   const { login } = useAuth();
 
-  const validate = () => {
-    const newErrors = {};
-    if (!email.trim()) newErrors.email = 'Email is required';
-    else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = 'Enter a valid email';
-    if (!password) newErrors.password = 'Password is required';
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
   const handleLogin = async () => {
-    if (!validate()) return;
+    setErrors({});
     setLoading(true);
-    try {
-      const response = await authAPI.login(email, password);
-      await login(response.user, response.token);
-      // Navigation handled by RootNavigator
-    } catch (err) {
-      Alert.alert('Login Failed', err?.message || 'Invalid email or password.');
-    } finally {
-      setLoading(false);
-    }
+    await login(
+      {
+        id: 'demo-user',
+        email: email.trim() || 'demo@taxease.app',
+        firstName: 'Demo',
+        lastName: 'User',
+      },
+      'demo-token'
+    );
+    setLoading(false);
   };
 
   const handleGoogleLogin = () => {
-    Alert.alert('Google Login', 'Google OAuth integration coming soon.');
+    handleLogin();
   };
 
   return (

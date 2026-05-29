@@ -25,7 +25,7 @@ const AccountSuccessScreen = ({ navigation }) => {
       <View style={styles.bottomRow}>
         <TouchableOpacity
           style={styles.nextBtn}
-          onPress={() => navigation.navigate('SelectType')}
+          onPress={() => navigation.navigate('ProfileType')}
         >
           <Text style={styles.nextText}>Next</Text>
           <Ionicons name="chevron-forward" size={20} color={COLORS.white} />

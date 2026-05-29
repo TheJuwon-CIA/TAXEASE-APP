@@ -84,10 +84,11 @@ const IllustrationPlaceholder = ({ type, size }) => {
 const OnboardingItem = ({ item, logoSize, isSmall }) => {
   return (
     <View style={[styles.slide, { width }]}>
-      {/* Top logo (small on slides 2-4) */}
-      <View style={styles.topLogo}>
-        <TaxeaseLogo size={item.isFirst ? 70 : 36} showText={false} />
-      </View>
+      {!item.isFirst ? (
+        <View style={styles.topLogo}>
+          <TaxeaseLogo size={36} showText={false} />
+        </View>
+      ) : null}
 
       <TouchableOpacity style={styles.skipBtn}>
         <Text style={styles.skipText}>Skip</Text>

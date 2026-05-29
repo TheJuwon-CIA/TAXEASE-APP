@@ -15,17 +15,10 @@ export const AuthProvider = ({ children }) => {
 
   const loadStoredAuth = async () => {
     try {
-      const storedToken = await AsyncStorage.getItem('authToken');
-      const storedUser = await AsyncStorage.getItem('user');
-      const onboarded = await AsyncStorage.getItem('hasSeenOnboarding');
-
-      if (storedToken && storedUser) {
-        setToken(storedToken);
-        setUser(JSON.parse(storedUser));
-      }
-      if (onboarded === 'true') {
-        setHasSeenOnboarding(true);
-      }
+      await AsyncStorage.multiRemove(['authToken', 'user', 'hasSeenOnboarding']);
+      setToken(null);
+      setUser(null);
+      setHasSeenOnboarding(false);
     } catch (e) {
       console.error('Failed to load auth state', e);
     } finally {

@@ -38,7 +38,7 @@ const MainTabNavigator = () => {
         },
         tabBarIcon: ({ focused, color, size }) => {
           const icons = {
-            Home: focused ? 'home' : 'home-outline',
+            Home: focused ? 'grid' : 'grid-outline',
             Calculator: focused ? 'calculator' : 'calculator-outline',
             Receipts: focused ? 'document-text' : 'document-text-outline',
             Profile: focused ? 'person' : 'person-outline',
@@ -49,9 +49,9 @@ const MainTabNavigator = () => {
         },
       })}
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Home" component={HomeScreen} options={{ title: 'Dashboard' }} />
       <Tab.Screen name="Calculator" component={CalculatorScreen} />
-      <Tab.Screen name="Receipts" component={ReceiptsScreen} />
+      <Tab.Screen name="Receipts" component={ReceiptsScreen} options={{ title: 'History' }} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );

@@ -18,6 +18,24 @@ import VerifyCodeScreen from '../screens/VerifyCodeScreen';
 import CreateNewPasswordScreen from '../screens/CreateNewPasswordScreen';
 import ResetSuccessScreen from '../screens/ResetSuccessScreen';
 import MainTabNavigator from './MainTabNavigator';
+import ProfileTypeScreen from '../screens/ProfileTypeScreen';
+import IndividualProfileTypeScreen from '../screens/IndividualProfileTypeScreen';
+import {
+  FreelancerProfileForm,
+  EmployeeProfileForm,
+  BusinessProfileForm,
+} from '../screens/ProfileSetupForms';
+import NotificationsScreen from '../screens/NotificationsScreen';
+import {
+  IndividualDeductionsScreen,
+  SMEIncomeScreen,
+  SMEDeductionsScreen,
+  PAYETaxDetailsScreen,
+  PAYETaxBandScreen,
+  SMETaxBandScreen,
+  PAYEResultScreen,
+  SavedSuccessScreen,
+} from '../screens/CalculatorFlowScreens';
 
 const Stack = createStackNavigator();
 
@@ -34,13 +52,25 @@ const RootNavigator = () => {
 
   return (
     <Stack.Navigator
+      initialRouteName={isLoggedIn ? 'MainTabs' : 'Onboarding'}
       screenOptions={{
         headerShown: false,
         cardStyle: { backgroundColor: '#ffffff' },
       }}
     >
       {isLoggedIn ? (
-        <Stack.Screen name="MainTabs" component={MainTabNavigator} />
+        <>
+          <Stack.Screen name="MainTabs" component={MainTabNavigator} />
+          <Stack.Screen name="Notifications" component={NotificationsScreen} />
+          <Stack.Screen name="IndividualDeductions" component={IndividualDeductionsScreen} />
+          <Stack.Screen name="SMEIncome" component={SMEIncomeScreen} />
+          <Stack.Screen name="SMEDeductions" component={SMEDeductionsScreen} />
+          <Stack.Screen name="PAYETaxDetails" component={PAYETaxDetailsScreen} />
+          <Stack.Screen name="PAYETaxBand" component={PAYETaxBandScreen} />
+          <Stack.Screen name="SMETaxBand" component={SMETaxBandScreen} />
+          <Stack.Screen name="PAYEResult" component={PAYEResultScreen} />
+          <Stack.Screen name="SavedSuccess" component={SavedSuccessScreen} />
+        </>
       ) : (
         <>
           <Stack.Screen name="Splash" component={SplashScreen} />
@@ -50,6 +80,11 @@ const RootNavigator = () => {
           <Stack.Screen name="Register" component={RegisterScreen} />
           <Stack.Screen name="ConfirmEmail" component={ConfirmEmailScreen} />
           <Stack.Screen name="AccountSuccess" component={AccountSuccessScreen} />
+          <Stack.Screen name="ProfileType" component={ProfileTypeScreen} />
+          <Stack.Screen name="IndividualProfileType" component={IndividualProfileTypeScreen} />
+          <Stack.Screen name="FreelancerProfileForm" component={FreelancerProfileForm} />
+          <Stack.Screen name="EmployeeProfileForm" component={EmployeeProfileForm} />
+          <Stack.Screen name="BusinessProfileForm" component={BusinessProfileForm} />
           <Stack.Screen name="SelectType" component={SelectTypeScreen} />
           <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
           <Stack.Screen name="VerifyCode" component={VerifyCodeScreen} />

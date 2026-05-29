@@ -4,14 +4,12 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import InputField from '../components/InputField';
 import Button from '../components/Button';
 import { COLORS, FONTS, SPACING } from '../constants/theme';
-import { authAPI } from '../services/api';
 
 const ForgotPasswordScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -19,24 +17,10 @@ const ForgotPasswordScreen = ({ navigation }) => {
   const [error, setError] = useState('');
 
   const handleSend = async () => {
-    if (!email.trim()) {
-      setError('Please enter your email address.');
-      return;
-    }
-    if (!/\S+@\S+\.\S+/.test(email)) {
-      setError('Please enter a valid email address.');
-      return;
-    }
     setError('');
     setLoading(true);
-    try {
-      await authAPI.forgotPassword(email);
-      navigation.navigate('VerifyCode', { email });
-    } catch (err) {
-      Alert.alert('Error', err?.message || 'Could not send reset link. Please try again.');
-    } finally {
-      setLoading(false);
-    }
+    navigation.navigate('VerifyCode', { email: email.trim() || 'demo@taxease.app' });
+    setLoading(false);
   };
 
   return (

@@ -5,14 +5,12 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
-  Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import InputField from '../components/InputField';
 import Button from '../components/Button';
 import { COLORS, FONTS, SPACING } from '../constants/theme';
-import { authAPI } from '../services/api';
 
 const RegisterScreen = ({ navigation }) => {
   const [form, setForm] = useState({
@@ -31,37 +29,13 @@ const RegisterScreen = ({ navigation }) => {
     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: '' }));
   };
 
-  const validate = () => {
-    const newErrors = {};
-    if (!form.email.trim()) newErrors.email = 'Email is required';
-    else if (!/\S+@\S+\.\S+/.test(form.email)) newErrors.email = 'Enter a valid email';
-    if (!form.firstName.trim()) newErrors.firstName = 'First name is required';
-    if (!form.lastName.trim()) newErrors.lastName = 'Last name is required';
-    if (!form.password) newErrors.password = 'Password is required';
-    else if (form.password.length < 8) newErrors.password = 'Minimum 8 characters';
-    if (form.password !== form.confirmPassword)
-      newErrors.confirmPassword = 'Passwords do not match';
-    if (!agreeTerms) newErrors.terms = 'You must agree to the Terms of Service';
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
   const handleRegister = async () => {
-    if (!validate()) return;
+    setErrors({});
     setLoading(true);
-    try {
-      await authAPI.register({
-        email: form.email,
-        firstName: form.firstName,
-        lastName: form.lastName,
-        password: form.password,
-      });
-      navigation.navigate('ConfirmEmail', { email: form.email });
-    } catch (err) {
-      Alert.alert('Registration Failed', err?.message || 'Please try again.');
-    } finally {
-      setLoading(false);
-    }
+    navigation.navigate('ConfirmEmail', {
+      email: form.email.trim() || 'demo@taxease.app',
+    });
+    setLoading(false);
   };
 
   return (
@@ -156,7 +130,7 @@ const RegisterScreen = ({ navigation }) => {
         <Button
           title="Login Using Google"
           variant="outline"
-          onPress={() => {}}
+          onPress={() => navigation.navigate('ConfirmEmail', { email: 'demo@taxease.app' })}
           icon={<Text style={{ fontSize: 18 }}>G</Text>}
           textStyle={{ color: COLORS.textDark }}
         />

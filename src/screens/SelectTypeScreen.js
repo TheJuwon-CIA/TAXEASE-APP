@@ -5,12 +5,10 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
-  Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS, FONTS, SPACING, RADIUS } from '../constants/theme';
-import { authAPI } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 
 const USER_TYPES = [
@@ -47,20 +45,17 @@ const SelectTypeScreen = ({ navigation }) => {
   const handleSelect = async (typeId) => {
     setSelected(typeId);
     setLoading(true);
-    try {
-      await authAPI.selectUserType(user?.id, typeId);
-      // Navigate to the main app after type selection
-      // RootNavigator will handle this once user is fully authenticated
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'MainTabs' }],
-      });
-    } catch (err) {
-      Alert.alert('Error', 'Could not save selection. Please try again.');
-      setSelected(null);
-    } finally {
-      setLoading(false);
-    }
+    await login(
+      {
+        id: user?.id || 'demo-user',
+        email: user?.email || 'demo@taxease.app',
+        firstName: user?.firstName || 'Demo',
+        lastName: user?.lastName || 'User',
+        userType: typeId,
+      },
+      'demo-token'
+    );
+    setLoading(false);
   };
 
   return (
