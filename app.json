@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "Taxease",
+    "slug": "taxease",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.taxease.app"
+    },
+    "android": {
+      "package": "com.taxease.app"
+    },
+    "plugins": [
+      "expo-status-bar",
+      "expo-font",
+      "expo-splash-screen"
+    ]
+  }
+}
