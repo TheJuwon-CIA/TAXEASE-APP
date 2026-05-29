@@ -216,7 +216,7 @@ export const SavedSuccessScreen = ({ navigation }) => (
       </View>
       <Text style={styles.savedTitle}>Saved Successfully</Text>
       <Text style={styles.savedSub}>Your tax  calculation has been saved{'\n'}successfully.</Text>
-      <TouchableOpacity style={styles.continueBtn} onPress={() => navigation.navigate('MainTabs', { screen: 'Home' })}>
+      <TouchableOpacity style={styles.continueBtn} onPress={() => navigation.navigate('PaymentPortal')}>
         <Text style={styles.continueText}>Pay Now</Text>
       </TouchableOpacity>
       <View style={styles.successLinks}>

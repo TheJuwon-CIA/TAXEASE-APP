@@ -58,7 +58,7 @@ const HomeScreen = ({ navigation }) => {
           subtitle="Know more about PAYE and taxation in Nigeria"
           action="Learn"
           icon="school-outline"
-          onPress={() => navigation.navigate('PAYETaxBand')}
+          onPress={() => navigation.navigate('EducationalResources')}
         />
 
         <View style={styles.tabHeader}>

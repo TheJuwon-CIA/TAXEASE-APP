@@ -27,6 +27,24 @@ import {
 } from '../screens/ProfileSetupForms';
 import NotificationsScreen from '../screens/NotificationsScreen';
 import {
+  PaymentPortalScreen,
+  FlutterwavePaymentScreen,
+  SelectPaymentMethodScreen,
+  SelectPreferredAccountScreen,
+  MakeTransferScreen,
+  LoadingPaymentScreen,
+  PaymentSuccessScreen,
+  PaymentFailedScreen,
+  ReceiptDetailScreen,
+} from '../screens/PaymentScreens';
+import {
+  EducationalResourcesScreen,
+  TaxBasicsScreen,
+  DeductionGuideScreen,
+  FAQsScreen,
+  VideoTutorialsScreen,
+} from '../screens/EducationScreens';
+import {
   IndividualDeductionsScreen,
   SMEIncomeScreen,
   SMEDeductionsScreen,
@@ -70,6 +88,20 @@ const RootNavigator = () => {
           <Stack.Screen name="SMETaxBand" component={SMETaxBandScreen} />
           <Stack.Screen name="PAYEResult" component={PAYEResultScreen} />
           <Stack.Screen name="SavedSuccess" component={SavedSuccessScreen} />
+          <Stack.Screen name="PaymentPortal" component={PaymentPortalScreen} />
+          <Stack.Screen name="FlutterwavePayment" component={FlutterwavePaymentScreen} />
+          <Stack.Screen name="SelectPaymentMethod" component={SelectPaymentMethodScreen} />
+          <Stack.Screen name="SelectPreferredAccount" component={SelectPreferredAccountScreen} />
+          <Stack.Screen name="MakeTransfer" component={MakeTransferScreen} />
+          <Stack.Screen name="LoadingPayment" component={LoadingPaymentScreen} />
+          <Stack.Screen name="PaymentSuccess" component={PaymentSuccessScreen} />
+          <Stack.Screen name="PaymentFailed" component={PaymentFailedScreen} />
+          <Stack.Screen name="ReceiptDetail" component={ReceiptDetailScreen} />
+          <Stack.Screen name="EducationalResources" component={EducationalResourcesScreen} />
+          <Stack.Screen name="TaxBasics" component={TaxBasicsScreen} />
+          <Stack.Screen name="DeductionGuide" component={DeductionGuideScreen} />
+          <Stack.Screen name="FAQs" component={FAQsScreen} />
+          <Stack.Screen name="VideoTutorials" component={VideoTutorialsScreen} />
         </>
       ) : (
         <>
