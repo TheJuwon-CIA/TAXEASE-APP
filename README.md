@@ -95,10 +95,12 @@ All API methods are already wired up:
 
 | Token | Value |
 |-------|-------|
-| Primary green | `#2DB82D` |
-| Dark green | `#1A7A1A` |
-| Text dark | `#1C1C1C` |
+| Primary green | `#28A07` |
+| Dark green | `#26805` |
+| Text dark | `#1f2937` |
+| System info | `#f3b24e` |
 | Background | `#FFFFFF` |
+| Error Message | `#ff383c` |
 
 All design tokens live in `src/constants/theme.js`.
 
