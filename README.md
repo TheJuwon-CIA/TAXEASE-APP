@@ -1,10 +1,12 @@
-# Taxease - React Native App (Expo SDK 54)
+# Taxease - React Native App
 
 A Nigerian finance and tax management app built with Expo.
 
 ---
 
 ## Project Structure
+
+TaxEase now follows the same feature-sliced layout style used by the AXIX Teacher app: shared app infrastructure sits in `src/lib`, `src/providers`, `src/theme`, and reusable UI; user-facing screens are grouped by product domain under `src/features/{domain}/screens`.
 
 ```text
 taxease/
@@ -18,44 +20,43 @@ taxease/
 |-- assets/                         # App images and static assets
 `-- src/
     |-- components/
-    |   |-- Button.js               # Reusable button component
-    |   |-- InputField.js           # Reusable input field
-    |   |-- OTPInput.js             # OTP input boxes
-    |   `-- TaxeaseLogo.js          # Taxease logo component
-    |-- constants/
-    |   `-- theme.js                # Colors, fonts, spacing, radius, shadows
-    |-- context/
-    |   `-- AuthContext.js          # Auth state and AsyncStorage persistence
+    |   |-- ui/                     # Reusable UI primitives
+    |   |   |-- Button.js
+    |   |   |-- InputField.js
+    |   |   |-- OTPInput.js
+    |   |   `-- TaxeaseLogo.js
+    |   `-- layout/                 # Shared layout components go here
+    |-- features/
+    |   |-- auth/screens/           # Onboarding, login, register, reset, setup
+    |   |-- calculator/screens/     # Calculator and calculator flow screens
+    |   |-- dashboard/screens/      # Home dashboard
+    |   |-- education/screens/      # Resources, guides, FAQs, videos
+    |   |-- notifications/screens/  # Notifications
+    |   |-- payments/screens/       # Payment portal and payment flow
+    |   |-- profile/screens/        # Profile tab
+    |   `-- receipts/screens/       # Payment history tab
+    |-- lib/
+    |   `-- api-client.js           # Axios API client and API helper groups
+    |-- mocks/
+    |   `-- fixtures/               # Mock/static fixtures go here
     |-- navigation/
     |   |-- MainTabNavigator.js     # Dashboard, calculator, history, profile tabs
     |   `-- RootNavigator.js        # Auth, calculator, payment, education routes
-    |-- screens/
-    |   |-- AccountSuccessScreen.js
-    |   |-- CalculatorFlowScreens.js # Calculator details, bands, result, saved state
-    |   |-- CalculatorScreen.js
-    |   |-- ConfirmEmailScreen.js
-    |   |-- CreateNewPasswordScreen.js
-    |   |-- EducationScreens.js      # Resources, tax basics, deductions, FAQs, videos
-    |   |-- ForgotPasswordScreen.js
-    |   |-- GetStartedScreen.js
-    |   |-- HomeScreen.js
-    |   |-- IndividualProfileTypeScreen.js
-    |   |-- LoginScreen.js
-    |   |-- NotificationsScreen.js
-    |   |-- OnboardingScreen.js
-    |   |-- PaymentScreens.js        # Payment portal, transfer, success, failed, receipt
-    |   |-- ProfileScreen.js
-    |   |-- ProfileSetupForms.js
-    |   |-- ProfileTypeScreen.js
-    |   |-- ReceiptsScreen.js        # Payment history tab
-    |   |-- RegisterScreen.js
-    |   |-- ResetSuccessScreen.js
-    |   |-- SelectTypeScreen.js
-    |   |-- SplashScreen.js
-    |   `-- VerifyCodeScreen.js
-    `-- services/
-        `-- api.js                  # Axios API service layer
+    |-- providers/
+    |   `-- AuthProvider.js         # Auth state and AsyncStorage persistence
+    `-- theme/
+        `-- tokens.js               # Colors, fonts, spacing, radius, shadows
 ```
+
+---
+
+## Adding A Screen
+
+1. Pick or create the feature domain under `src/features/{domain}/`.
+2. Add the screen in `src/features/{domain}/screens/YourScreen.js`.
+3. Put reusable UI in `src/components/ui`, not inside a screen file.
+4. Put shared app logic in `src/lib` or `src/providers`.
+5. Register the screen in `src/navigation/RootNavigator.js` or `src/navigation/MainTabNavigator.js`.
 
 ---
 
@@ -79,7 +80,7 @@ Then scan the QR code with Expo Go on your phone.
 
 ## API Integration
 
-Edit `src/services/api.js` and replace the base URL:
+Edit `src/lib/api-client.js` and replace the base URL:
 
 ```js
 const BASE_URL = 'https://api.taxease.com/v1';
@@ -108,7 +109,7 @@ API helpers include:
 | Background | `#ffffff` |
 | Error message | `#ff383c` |
 
-All design tokens live in `src/constants/theme.js`.
+All design tokens live in `src/theme/tokens.js`.
 
 ---
 

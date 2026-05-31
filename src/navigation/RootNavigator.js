@@ -2,30 +2,30 @@ import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { useAuth } from '../context/AuthContext';
-import { COLORS } from '../constants/theme';
+import { useAuth } from '../providers/AuthProvider';
+import { COLORS } from '../theme/tokens';
 
-import SplashScreen from '../screens/SplashScreen';
-import OnboardingScreen from '../screens/OnboardingScreen';
-import GetStartedScreen from '../screens/GetStartedScreen';
-import LoginScreen from '../screens/LoginScreen';
-import RegisterScreen from '../screens/RegisterScreen';
-import ConfirmEmailScreen from '../screens/ConfirmEmailScreen';
-import AccountSuccessScreen from '../screens/AccountSuccessScreen';
-import SelectTypeScreen from '../screens/SelectTypeScreen';
-import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
-import VerifyCodeScreen from '../screens/VerifyCodeScreen';
-import CreateNewPasswordScreen from '../screens/CreateNewPasswordScreen';
-import ResetSuccessScreen from '../screens/ResetSuccessScreen';
+import SplashScreen from '../features/auth/screens/SplashScreen';
+import OnboardingScreen from '../features/auth/screens/OnboardingScreen';
+import GetStartedScreen from '../features/auth/screens/GetStartedScreen';
+import LoginScreen from '../features/auth/screens/LoginScreen';
+import RegisterScreen from '../features/auth/screens/RegisterScreen';
+import ConfirmEmailScreen from '../features/auth/screens/ConfirmEmailScreen';
+import AccountSuccessScreen from '../features/auth/screens/AccountSuccessScreen';
+import SelectTypeScreen from '../features/auth/screens/SelectTypeScreen';
+import ForgotPasswordScreen from '../features/auth/screens/ForgotPasswordScreen';
+import VerifyCodeScreen from '../features/auth/screens/VerifyCodeScreen';
+import CreateNewPasswordScreen from '../features/auth/screens/CreateNewPasswordScreen';
+import ResetSuccessScreen from '../features/auth/screens/ResetSuccessScreen';
 import MainTabNavigator from './MainTabNavigator';
-import ProfileTypeScreen from '../screens/ProfileTypeScreen';
-import IndividualProfileTypeScreen from '../screens/IndividualProfileTypeScreen';
+import ProfileTypeScreen from '../features/auth/screens/ProfileTypeScreen';
+import IndividualProfileTypeScreen from '../features/auth/screens/IndividualProfileTypeScreen';
 import {
   FreelancerProfileForm,
   EmployeeProfileForm,
   BusinessProfileForm,
-} from '../screens/ProfileSetupForms';
-import NotificationsScreen from '../screens/NotificationsScreen';
+} from '../features/auth/screens/ProfileSetupForms';
+import NotificationsScreen from '../features/notifications/screens/NotificationsScreen';
 import {
   PaymentPortalScreen,
   FlutterwavePaymentScreen,
@@ -36,14 +36,14 @@ import {
   PaymentSuccessScreen,
   PaymentFailedScreen,
   ReceiptDetailScreen,
-} from '../screens/PaymentScreens';
+} from '../features/payments/screens/PaymentScreens';
 import {
   EducationalResourcesScreen,
   TaxBasicsScreen,
   DeductionGuideScreen,
   FAQsScreen,
   VideoTutorialsScreen,
-} from '../screens/EducationScreens';
+} from '../features/education/screens/EducationScreens';
 import {
   IndividualDeductionsScreen,
   SMEIncomeScreen,
@@ -53,7 +53,7 @@ import {
   SMETaxBandScreen,
   PAYEResultScreen,
   SavedSuccessScreen,
-} from '../screens/CalculatorFlowScreens';
+} from '../features/calculator/screens/CalculatorFlowScreens';
 
 const Stack = createStackNavigator();
 

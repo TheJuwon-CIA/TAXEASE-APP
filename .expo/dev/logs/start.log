@@ -2797,3 +2797,276 @@
 {"_e":"metro:bundling:progress","_t":1780086651772,"id":"2","progress":0.999,"total":1471,"current":1471}
 {"_e":"metro:bundling:done","_t":1780086652046,"id":"2","total":1471,"ms":24927.4201}
 {"_e":"metro:client_log","_t":1780086660070,"level":"warn","data":["InteractionManager has been deprecated and will be removed in a future release. Please refactor long tasks into smaller ones, and  use 'requestIdleCallback' instead."]}
+{"_e":"root:init","_t":1780170132561,"format":"v0-jsonl","version":"56.1.13"}
+{"_e":"env:mode","_t":1780170132562,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1780170132566,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1780170133121,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1780170133717,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1780170143365,"atlas":false,"workers":8,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1780170183011,"id":"1","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1780170183011,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780170183033,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780170183133,"id":"1","progress":0.05536332179930796,"total":17,"current":4}
+{"_e":"metro:bundling:progress","_t":1780170183246,"id":"1","progress":0.15311909262759926,"total":23,"current":9}
+{"_e":"metro:bundling:progress","_t":1780170183357,"id":"1","progress":0.15311909262759926,"total":77,"current":14}
+{"_e":"metro:bundling:progress","_t":1780170183459,"id":"1","progress":0.15311909262759926,"total":111,"current":43}
+{"_e":"metro:bundling:progress","_t":1780170183563,"id":"1","progress":0.20875445897740788,"total":116,"current":53}
+{"_e":"metro:bundling:progress","_t":1780170183664,"id":"1","progress":0.26557265986676204,"total":163,"current":84}
+{"_e":"metro:bundling:progress","_t":1780170183767,"id":"1","progress":0.29898808512703534,"total":203,"current":111}
+{"_e":"metro:bundling:progress","_t":1780170183876,"id":"1","progress":0.32788691654758007,"total":241,"current":138}
+{"_e":"metro:bundling:progress","_t":1780170183978,"id":"1","progress":0.32788691654758007,"total":272,"current":154}
+{"_e":"metro:bundling:progress","_t":1780170184080,"id":"1","progress":0.39707262150497274,"total":292,"current":184}
+{"_e":"metro:bundling:progress","_t":1780170184185,"id":"1","progress":0.5285200797922391,"total":326,"current":237}
+{"_e":"metro:bundling:progress","_t":1780170184328,"id":"1","progress":0.5409089372633856,"total":344,"current":253}
+{"_e":"metro:bundling:progress","_t":1780170184428,"id":"1","progress":0.5554844784336839,"total":373,"current":278}
+{"_e":"metro:bundling:progress","_t":1780170184528,"id":"1","progress":0.6727231915358296,"total":406,"current":333}
+{"_e":"metro:bundling:progress","_t":1780170184644,"id":"1","progress":0.6836466389054133,"total":410,"current":339}
+{"_e":"metro:bundling:progress","_t":1780170184773,"id":"1","progress":0.6876859012492563,"total":410,"current":340}
+{"_e":"metro:bundling:progress","_t":1780170184897,"id":"1","progress":0.7112788503411236,"total":415,"current":350}
+{"_e":"metro:bundling:progress","_t":1780170184912,"id":"1","progress":0.7153491072724634,"total":415,"current":351}
+{"_e":"metro:bundling:progress","_t":1780170185013,"id":"1","progress":0.7341373966942148,"total":440,"current":377}
+{"_e":"metro:bundling:progress","_t":1780170185114,"id":"1","progress":0.7341373966942148,"total":481,"current":399}
+{"_e":"metro:bundling:progress","_t":1780170185213,"id":"1","progress":0.7341373966942148,"total":537,"current":414}
+{"_e":"metro:bundling:progress","_t":1780170185316,"id":"1","progress":0.7341373966942148,"total":539,"current":419}
+{"_e":"metro:bundling:progress","_t":1780170185416,"id":"1","progress":0.7341373966942148,"total":576,"current":471}
+{"_e":"metro:bundling:progress","_t":1780170185519,"id":"1","progress":0.7341373966942148,"total":599,"current":484}
+{"_e":"metro:bundling:progress","_t":1780170185619,"id":"1","progress":0.7341373966942148,"total":640,"current":516}
+{"_e":"metro:bundling:progress","_t":1780170185796,"id":"1","progress":0.7341373966942148,"total":653,"current":541}
+{"_e":"metro:bundling:progress","_t":1780170185806,"id":"1","progress":0.7341373966942148,"total":653,"current":542}
+{"_e":"metro:bundling:progress","_t":1780170185942,"id":"1","progress":0.7341373966942148,"total":653,"current":543}
+{"_e":"metro:bundling:progress","_t":1780170186042,"id":"1","progress":0.7341373966942148,"total":692,"current":576}
+{"_e":"metro:bundling:progress","_t":1780170186143,"id":"1","progress":0.7341373966942148,"total":737,"current":618}
+{"_e":"metro:bundling:progress","_t":1780170186293,"id":"1","progress":0.7341373966942148,"total":767,"current":638}
+{"_e":"metro:bundling:progress","_t":1780170186395,"id":"1","progress":0.7341373966942148,"total":774,"current":641}
+{"_e":"metro:bundling:progress","_t":1780170186498,"id":"1","progress":0.7341373966942148,"total":820,"current":668}
+{"_e":"metro:bundling:progress","_t":1780170186819,"id":"1","progress":0.7341373966942148,"total":820,"current":669}
+{"_e":"metro:bundling:progress","_t":1780170186982,"id":"1","progress":0.7447358080621302,"total":832,"current":718}
+{"_e":"metro:bundling:progress","_t":1780170187042,"id":"1","progress":0.7468117256841715,"total":832,"current":719}
+{"_e":"metro:bundling:progress","_t":1780170187145,"id":"1","progress":0.7468117256841715,"total":849,"current":727}
+{"_e":"metro:bundling:progress","_t":1780170187245,"id":"1","progress":0.7468117256841715,"total":860,"current":733}
+{"_e":"metro:bundling:progress","_t":1780170187347,"id":"1","progress":0.7719603060576699,"total":865,"current":760}
+{"_e":"metro:bundling:progress","_t":1780170187478,"id":"1","progress":0.8416799932665602,"total":872,"current":800}
+{"_e":"metro:bundling:progress","_t":1780170187565,"id":"1","progress":0.8590641632653061,"total":875,"current":811}
+{"_e":"metro:bundling:progress","_t":1780170187720,"id":"1","progress":0.8590641632653061,"total":906,"current":823}
+{"_e":"metro:bundling:progress","_t":1780170187751,"id":"1","progress":0.8590641632653061,"total":906,"current":824}
+{"_e":"metro:bundling:progress","_t":1780170187853,"id":"1","progress":0.8590641632653061,"total":906,"current":826}
+{"_e":"metro:bundling:progress","_t":1780170187954,"id":"1","progress":0.8590641632653061,"total":909,"current":835}
+{"_e":"metro:bundling:progress","_t":1780170188107,"id":"1","progress":0.8590641632653061,"total":911,"current":836}
+{"_e":"metro:bundling:progress","_t":1780170188120,"id":"1","progress":0.8590641632653061,"total":911,"current":837}
+{"_e":"metro:bundling:progress","_t":1780170188239,"id":"1","progress":0.8920894997519421,"total":919,"current":868}
+{"_e":"metro:bundling:progress","_t":1780170188346,"id":"1","progress":0.8920894997519421,"total":922,"current":869}
+{"_e":"metro:bundling:progress","_t":1780170188451,"id":"1","progress":0.8920894997519421,"total":938,"current":885}
+{"_e":"metro:bundling:progress","_t":1780170188556,"id":"1","progress":0.9173921558154854,"total":948,"current":908}
+{"_e":"metro:bundling:progress","_t":1780170188657,"id":"1","progress":0.9173921558154854,"total":953,"current":910}
+{"_e":"metro:bundling:progress","_t":1780170188758,"id":"1","progress":0.9173921558154854,"total":998,"current":952}
+{"_e":"metro:bundling:progress","_t":1780170188860,"id":"1","progress":0.9285605860644365,"total":1017,"current":980}
+{"_e":"metro:bundling:progress","_t":1780170188960,"id":"1","progress":0.9285605860644365,"total":1058,"current":1009}
+{"_e":"metro:bundling:progress","_t":1780170189065,"id":"1","progress":0.9285605860644365,"total":1058,"current":1016}
+{"_e":"metro:bundling:progress","_t":1780170189175,"id":"1","progress":0.950849667650619,"total":1085,"current":1058}
+{"_e":"metro:bundling:done","_t":1780170189359,"id":"1","total":1085,"ms":6348.2463}
+{"_e":"metro:client_log","_t":1780170190323,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1780170190325,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1780170190325,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1780170190484,"level":"warn","data":["props.pointerEvents is deprecated. Use style.pointerEvents"]}
+{"_e":"root:init","_t":1780190423515,"format":"v0-jsonl","version":"56.1.13"}
+{"_e":"env:mode","_t":1780190423516,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1780190423520,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1780190424287,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1780190424976,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1780190438948,"atlas":false,"workers":8,"host":"::","port":8082}
+{"_e":"metro:bundling:started","_t":1780190503560,"id":"1","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:done","_t":1780190509696,"id":"1","total":1086,"ms":6135.5174}
+{"_e":"metro:bundling:started","_t":1780190619129,"id":"2","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:done","_t":1780190620745,"id":"2","total":1,"ms":1616.5188}
+{"_e":"root:init","_t":1780190640780,"format":"v0-jsonl","version":"56.1.13"}
+{"_e":"env:mode","_t":1780190640781,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1780190640784,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1780190642046,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1780190643162,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1780190656059,"atlas":false,"workers":8,"host":"::","port":8082}
+{"_e":"metro:bundling:started","_t":1780190718220,"id":"1","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:done","_t":1780190720040,"id":"1","total":1086,"ms":1820.2582}
+{"_e":"metro:bundling:started","_t":1780190744066,"id":"2","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"root:init","_t":1780192797402,"format":"v0-jsonl","version":"56.1.13"}
+{"_e":"env:mode","_t":1780192797403,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1780192797407,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1780192797841,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1780192798238,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1780192807373,"atlas":false,"workers":8,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1780192807874,"id":"1","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1780192807876,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780192807887,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780192808017,"id":"1","progress":0.12098298676748581,"total":23,"current":8}
+{"_e":"metro:bundling:progress","_t":1780192808118,"id":"1","progress":0.12098298676748581,"total":134,"current":43}
+{"_e":"metro:bundling:progress","_t":1780192808221,"id":"1","progress":0.17697978596908442,"total":145,"current":61}
+{"_e":"metro:bundling:progress","_t":1780192808323,"id":"1","progress":0.17697978596908442,"total":184,"current":74}
+{"_e":"metro:bundling:progress","_t":1780192808444,"id":"1","progress":0.18699780861943027,"total":222,"current":96}
+{"_e":"metro:bundling:progress","_t":1780192808555,"id":"1","progress":0.2177777777777778,"total":255,"current":119}
+{"_e":"metro:bundling:progress","_t":1780192808654,"id":"1","progress":0.26379055023369896,"total":294,"current":151}
+{"_e":"metro:bundling:progress","_t":1780192808754,"id":"1","progress":0.36226059099262,"total":319,"current":192}
+{"_e":"metro:bundling:progress","_t":1780192808854,"id":"1","progress":0.425175455057234,"total":365,"current":238}
+{"_e":"metro:bundling:progress","_t":1780192808956,"id":"1","progress":0.425175455057234,"total":394,"current":252}
+{"_e":"metro:bundling:progress","_t":1780192809056,"id":"1","progress":0.425175455057234,"total":431,"current":276}
+{"_e":"metro:bundling:progress","_t":1780192809156,"id":"1","progress":0.5689285192490321,"total":468,"current":353}
+{"_e":"metro:bundling:progress","_t":1780192809256,"id":"1","progress":0.5689285192490321,"total":545,"current":394}
+{"_e":"metro:bundling:progress","_t":1780192809357,"id":"1","progress":0.5728923900118906,"total":580,"current":439}
+{"_e":"metro:bundling:progress","_t":1780192809457,"id":"1","progress":0.5728923900118906,"total":643,"current":458}
+{"_e":"metro:bundling:progress","_t":1780192809560,"id":"1","progress":0.6774746060253233,"total":667,"current":549}
+{"_e":"metro:bundling:progress","_t":1780192809660,"id":"1","progress":0.6774746060253233,"total":726,"current":595}
+{"_e":"metro:bundling:progress","_t":1780192809761,"id":"1","progress":0.6986278352522911,"total":798,"current":667}
+{"_e":"metro:bundling:progress","_t":1780192809861,"id":"1","progress":0.749899478920458,"total":858,"current":743}
+{"_e":"metro:bundling:progress","_t":1780192810042,"id":"1","progress":0.7853288971643112,"total":905,"current":802}
+{"_e":"metro:bundling:progress","_t":1780192810143,"id":"1","progress":0.8794007815699052,"total":948,"current":889}
+{"_e":"metro:bundling:progress","_t":1780192810243,"id":"1","progress":0.9290871611826452,"total":997,"current":961}
+{"_e":"metro:bundling:progress","_t":1780192810343,"id":"1","progress":0.9426313121294276,"total":1065,"current":1034}
+{"_e":"metro:bundling:done","_t":1780192810590,"id":"1","total":1065,"ms":2715.7173}
+{"_e":"metro:client_log","_t":1780192811132,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1780192811135,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1780192811136,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1780192811175,"level":"warn","data":["props.pointerEvents is deprecated. Use style.pointerEvents"]}
+{"_e":"metro:bundling:started","_t":1780192814975,"id":"3","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1780192814976,"id":"3","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1780192815101,"id":"3","total":1,"ms":125.2622}
+{"_e":"metro:client_log","_t":1780192815948,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1780192815948,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1780192815960,"level":"warn","data":["props.pointerEvents is deprecated. Use style.pointerEvents"]}
+{"_e":"metro:client_log","_t":1780192837554,"level":"warn","data":["An error occurred in the <div> component.\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.\n"]}
+{"_e":"metro:client_log","_t":1780192837561,"level":"warn","data":["An error occurred in the <NativeSafeAreaProvider> component.\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.\n"]}
+{"_e":"metro:bundling:started","_t":1780192898194,"id":"5","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1780192898195,"id":"5","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780192898329,"id":"5","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780192898432,"id":"5","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780192898532,"id":"5","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780192898632,"id":"5","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780192898732,"id":"5","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780192898832,"id":"5","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780192898979,"id":"5","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1780192899109,"id":"5","progress":0.05477591670439113,"total":47,"current":11}
+{"_e":"metro:bundling:progress","_t":1780192899209,"id":"5","progress":0.09100839549327425,"total":179,"current":54}
+{"_e":"metro:bundling:progress","_t":1780192899311,"id":"5","progress":0.12282732116342038,"total":214,"current":75}
+{"_e":"metro:bundling:progress","_t":1780192899413,"id":"5","progress":0.20303394835101315,"total":253,"current":114}
+{"_e":"metro:bundling:progress","_t":1780192899513,"id":"5","progress":0.33174343542808626,"total":283,"current":163}
+{"_e":"metro:bundling:progress","_t":1780192899613,"id":"5","progress":0.3842549844396566,"total":342,"current":212}
+{"_e":"metro:bundling:progress","_t":1780192899713,"id":"5","progress":0.42533081285444235,"total":391,"current":255}
+{"_e":"metro:bundling:progress","_t":1780192899939,"id":"5","progress":0.4346945886197616,"total":408,"current":269}
+{"_e":"metro:bundling:progress","_t":1780192900039,"id":"5","progress":0.46545549829679445,"total":428,"current":292}
+{"_e":"metro:bundling:progress","_t":1780192900139,"id":"5","progress":0.715701721590201,"total":474,"current":401}
+{"_e":"metro:bundling:progress","_t":1780192900239,"id":"5","progress":0.715701721590201,"total":474,"current":401}
+{"_e":"metro:bundling:progress","_t":1780192900339,"id":"5","progress":0.715701721590201,"total":474,"current":401}
+{"_e":"metro:bundling:progress","_t":1780192900439,"id":"5","progress":0.715701721590201,"total":474,"current":401}
+{"_e":"metro:bundling:progress","_t":1780192900539,"id":"5","progress":0.715701721590201,"total":474,"current":401}
+{"_e":"metro:bundling:progress","_t":1780192900639,"id":"5","progress":0.715701721590201,"total":474,"current":401}
+{"_e":"metro:bundling:progress","_t":1780192900740,"id":"5","progress":0.7387473533228605,"total":484,"current":416}
+{"_e":"metro:bundling:progress","_t":1780192900866,"id":"5","progress":0.7387473533228605,"total":484,"current":416}
+{"_e":"metro:bundling:progress","_t":1780192901000,"id":"5","progress":0.7387473533228605,"total":582,"current":488}
+{"_e":"metro:bundling:progress","_t":1780192901100,"id":"5","progress":0.7387473533228605,"total":582,"current":488}
+{"_e":"metro:bundling:progress","_t":1780192901200,"id":"5","progress":0.7387473533228605,"total":582,"current":488}
+{"_e":"metro:bundling:progress","_t":1780192901300,"id":"5","progress":0.7387473533228605,"total":582,"current":488}
+{"_e":"metro:bundling:progress","_t":1780192901400,"id":"5","progress":0.7387473533228605,"total":582,"current":488}
+{"_e":"metro:bundling:progress","_t":1780192901500,"id":"5","progress":0.7387473533228605,"total":582,"current":488}
+{"_e":"metro:bundling:progress","_t":1780192901631,"id":"5","progress":0.7387473533228605,"total":582,"current":488}
+{"_e":"metro:bundling:progress","_t":1780192901731,"id":"5","progress":0.7387473533228605,"total":734,"current":617}
+{"_e":"metro:bundling:progress","_t":1780192901831,"id":"5","progress":0.7387473533228605,"total":767,"current":643}
+{"_e":"metro:bundling:progress","_t":1780192901933,"id":"5","progress":0.7387473533228605,"total":814,"current":698}
+{"_e":"metro:bundling:progress","_t":1780192902034,"id":"5","progress":0.7387473533228605,"total":814,"current":698}
+{"_e":"metro:bundling:progress","_t":1780192902133,"id":"5","progress":0.7387473533228605,"total":814,"current":698}
+{"_e":"metro:bundling:progress","_t":1780192902233,"id":"5","progress":0.7387473533228605,"total":814,"current":698}
+{"_e":"metro:bundling:progress","_t":1780192902333,"id":"5","progress":0.7387473533228605,"total":814,"current":698}
+{"_e":"metro:bundling:progress","_t":1780192902434,"id":"5","progress":0.865181513008195,"total":859,"current":799}
+{"_e":"metro:bundling:progress","_t":1780192902535,"id":"5","progress":0.865181513008195,"total":859,"current":799}
+{"_e":"metro:bundling:progress","_t":1780192902634,"id":"5","progress":0.865181513008195,"total":903,"current":810}
+{"_e":"metro:bundling:progress","_t":1780192902751,"id":"5","progress":0.865181513008195,"total":940,"current":826}
+{"_e":"metro:bundling:progress","_t":1780192902853,"id":"5","progress":0.865181513008195,"total":1019,"current":864}
+{"_e":"metro:bundling:progress","_t":1780192902953,"id":"5","progress":0.865181513008195,"total":1019,"current":864}
+{"_e":"metro:bundling:progress","_t":1780192903053,"id":"5","progress":0.865181513008195,"total":1019,"current":864}
+{"_e":"metro:bundling:progress","_t":1780192903153,"id":"5","progress":0.865181513008195,"total":1019,"current":864}
+{"_e":"metro:bundling:progress","_t":1780192903253,"id":"5","progress":0.865181513008195,"total":1019,"current":864}
+{"_e":"metro:bundling:progress","_t":1780192903354,"id":"5","progress":0.865181513008195,"total":1019,"current":864}
+{"_e":"metro:bundling:progress","_t":1780192903455,"id":"5","progress":0.865181513008195,"total":1028,"current":898}
+{"_e":"metro:bundling:progress","_t":1780192903555,"id":"5","progress":0.865181513008195,"total":1094,"current":934}
+{"_e":"metro:bundling:progress","_t":1780192903658,"id":"5","progress":0.865181513008195,"total":1094,"current":934}
+{"_e":"metro:bundling:progress","_t":1780192903758,"id":"5","progress":0.865181513008195,"total":1166,"current":1037}
+{"_e":"metro:bundling:progress","_t":1780192903858,"id":"5","progress":0.865181513008195,"total":1166,"current":1037}
+{"_e":"metro:bundling:progress","_t":1780192903958,"id":"5","progress":0.865181513008195,"total":1166,"current":1037}
+{"_e":"metro:bundling:progress","_t":1780192904058,"id":"5","progress":0.865181513008195,"total":1166,"current":1037}
+{"_e":"metro:bundling:progress","_t":1780192904158,"id":"5","progress":0.865181513008195,"total":1166,"current":1037}
+{"_e":"metro:bundling:progress","_t":1780192904259,"id":"5","progress":0.865181513008195,"total":1166,"current":1037}
+{"_e":"metro:bundling:progress","_t":1780192904368,"id":"5","progress":0.865181513008195,"total":1242,"current":1130}
+{"_e":"metro:bundling:progress","_t":1780192904486,"id":"5","progress":0.865181513008195,"total":1242,"current":1130}
+{"_e":"metro:bundling:progress","_t":1780192904598,"id":"5","progress":0.9389681513051292,"total":1355,"current":1313}
+{"_e":"metro:bundling:progress","_t":1780192904698,"id":"5","progress":0.9389681513051292,"total":1355,"current":1313}
+{"_e":"metro:bundling:progress","_t":1780192904800,"id":"5","progress":0.9389681513051292,"total":1355,"current":1313}
+{"_e":"metro:bundling:progress","_t":1780192904900,"id":"5","progress":0.9389681513051292,"total":1355,"current":1313}
+{"_e":"metro:bundling:progress","_t":1780192905000,"id":"5","progress":0.9389681513051292,"total":1355,"current":1313}
+{"_e":"metro:bundling:progress","_t":1780192905100,"id":"5","progress":0.9389681513051292,"total":1355,"current":1313}
+{"_e":"metro:bundling:progress","_t":1780192905229,"id":"5","progress":0.9389681513051292,"total":1355,"current":1313}
+{"_e":"metro:bundling:progress","_t":1780192905349,"id":"5","progress":0.9389681513051292,"total":1355,"current":1313}
+{"_e":"metro:bundling:progress","_t":1780192905451,"id":"5","progress":0.9389681513051292,"total":1355,"current":1313}
+{"_e":"metro:bundling:progress","_t":1780192905551,"id":"5","progress":0.9389681513051292,"total":1355,"current":1313}
+{"_e":"metro:bundling:progress","_t":1780192905651,"id":"5","progress":0.9389681513051292,"total":1355,"current":1313}
+{"_e":"metro:bundling:progress","_t":1780192905751,"id":"5","progress":0.9389681513051292,"total":1355,"current":1313}
+{"_e":"metro:bundling:progress","_t":1780192905856,"id":"5","progress":0.9389681513051292,"total":1355,"current":1313}
+{"_e":"metro:bundling:done","_t":1780192905958,"id":"5","total":1355,"ms":7763.4184}
+{"_e":"metro:client_log","_t":1780192919152,"level":"warn","data":["InteractionManager has been deprecated and will be removed in a future release. Please refactor long tasks into smaller ones, and  use 'requestIdleCallback' instead."]}
+{"_e":"metro:bundling:started","_t":1780193215839,"id":"7","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1780193215848,"id":"7","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1780193216034,"id":"7","total":1,"ms":194.0746}
+{"_e":"metro:client_log","_t":1780193226179,"level":"warn","data":["InteractionManager has been deprecated and will be removed in a future release. Please refactor long tasks into smaller ones, and  use 'requestIdleCallback' instead."]}
+{"_e":"metro:bundling:started","_t":1780193365406,"id":"9","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1780193365406,"id":"9","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1780193365580,"id":"9","total":1,"ms":174.3065}
+{"_e":"metro:client_log","_t":1780193375981,"level":"warn","data":["InteractionManager has been deprecated and will be removed in a future release. Please refactor long tasks into smaller ones, and  use 'requestIdleCallback' instead."]}
+{"_e":"metro:bundling:started","_t":1780193379837,"id":"b","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1780193379837,"id":"b","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1780193380002,"id":"b","total":1,"ms":164.7237}
+{"_e":"metro:client_log","_t":1780193380747,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1780193380748,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1780193380748,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1780193381135,"level":"warn","data":["props.pointerEvents is deprecated. Use style.pointerEvents"]}
+{"_e":"metro:client_log","_t":1780193381214,"level":"warn","data":["An error occurred in the <div> component.\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.\n"]}
+{"_e":"metro:client_log","_t":1780193381215,"level":"warn","data":["An error occurred in the <div> component.\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.\n"]}
+{"_e":"metro:client_log","_t":1780193381218,"level":"warn","data":["An error occurred in the <NativeSafeAreaProvider> component.\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.\n"]}
+{"_e":"metro:bundling:started","_t":1780193381323,"id":"d","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1780193381323,"id":"d","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1780193381436,"id":"d","total":1,"ms":112.8755}
+{"_e":"metro:client_log","_t":1780193381961,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1780193381961,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1780193382009,"level":"warn","data":["props.pointerEvents is deprecated. Use style.pointerEvents"]}
+{"_e":"metro:bundling:started","_t":1780193916528,"id":"f","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1780193916528,"id":"f","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1780193916704,"id":"f","total":1,"ms":175.5222}
+{"_e":"metro:client_log","_t":1780193929137,"level":"warn","data":["InteractionManager has been deprecated and will be removed in a future release. Please refactor long tasks into smaller ones, and  use 'requestIdleCallback' instead."]}
+{"_e":"metro:client_log","_t":1780194611406,"level":"warn","data":["An error occurred in the <div> component.\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.\n"]}
+{"_e":"metro:client_log","_t":1780194611406,"level":"warn","data":["An error occurred in the <div> component.\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.\n"]}
+{"_e":"metro:client_log","_t":1780194611406,"level":"warn","data":["An error occurred in the <div> component.\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.\n"]}
+{"_e":"metro:client_log","_t":1780194611406,"level":"warn","data":["An error occurred in the <NativeSafeAreaProvider> component.\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.\n"]}
+{"_e":"metro:client_log","_t":1780194702661,"level":"warn","data":["An error occurred in the <div> component.\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.\n"]}
+{"_e":"metro:client_log","_t":1780194702662,"level":"warn","data":["An error occurred in the <div> component.\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.\n"]}
+{"_e":"metro:client_log","_t":1780194702662,"level":"warn","data":["An error occurred in the <div> component.\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.\n"]}
+{"_e":"metro:client_log","_t":1780194702663,"level":"warn","data":["An error occurred in the <NativeSafeAreaProvider> component.\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.\n"]}
+{"_e":"root:init","_t":1780194716275,"format":"v0-jsonl","version":"56.1.13"}
+{"_e":"env:mode","_t":1780194716276,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1780194716279,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1780194716733,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1780194717294,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"metro:instantiate","_t":1780194735765,"atlas":false,"workers":8,"host":"::","port":8082}
+{"_e":"metro:bundling:started","_t":1780194786996,"id":"w","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1780194786996,"id":"w","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1780194787139,"id":"w","total":1,"ms":142.4329}
+{"_e":"metro:client_log","_t":1780194788061,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1780194788062,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1780194788062,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1780194788569,"level":"warn","data":["props.pointerEvents is deprecated. Use style.pointerEvents"]}
+{"_e":"metro:client_log","_t":1780194788619,"level":"warn","data":["An error occurred in the <div> component.\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.\n"]}
+{"_e":"metro:client_log","_t":1780194788619,"level":"warn","data":["An error occurred in the <div> component.\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.\n"]}
+{"_e":"metro:client_log","_t":1780194788622,"level":"warn","data":["An error occurred in the <NativeSafeAreaProvider> component.\n\nConsider adding an error boundary to your tree to customize error handling behavior.\nVisit https://react.dev/link/error-boundaries to learn more about error boundaries.\n"]}
+{"_e":"metro:bundling:started","_t":1780194788770,"id":"12","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1780194788770,"id":"12","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1780194788926,"id":"12","total":1,"ms":155.6102}
+{"_e":"metro:client_log","_t":1780194789540,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1780194789541,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1780194789581,"level":"warn","data":["props.pointerEvents is deprecated. Use style.pointerEvents"]}
+{"_e":"metro:bundling:started","_t":1780194795785,"id":"1","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:done","_t":1780194798299,"id":"1","total":1099,"ms":2513.3526}
+{"_e":"metro:bundling:started","_t":1780194824836,"id":"2","platform":"android","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:done","_t":1780194828553,"id":"2","total":1451,"ms":3717.1381}

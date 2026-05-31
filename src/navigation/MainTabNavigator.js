@@ -3,12 +3,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { Platform } from 'react-native';
 
-import HomeScreen from '../screens/HomeScreen';
-import CalculatorScreen from '../screens/CalculatorScreen';
-import ReceiptsScreen from '../screens/ReceiptsScreen';
-import ProfileScreen from '../screens/ProfileScreen';
+import HomeScreen from '../features/dashboard/screens/HomeScreen';
+import CalculatorScreen from '../features/calculator/screens/CalculatorScreen';
+import ReceiptsScreen from '../features/receipts/screens/ReceiptsScreen';
+import ProfileScreen from '../features/profile/screens/ProfileScreen';
 
-import { COLORS, FONTS } from '../constants/theme';
+import { COLORS, FONTS } from '../theme/tokens';
 
 const Tab = createBottomTabNavigator();
 
