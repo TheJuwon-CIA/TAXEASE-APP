@@ -1,21 +1,23 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Image, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, ImageBackground } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS, FONTS, SPACING, RADIUS, SHADOWS } from '../../../theme/tokens';
 import { appImages } from '../../../lib/assets';
 
+const ActionButton = ({ title, onPress }) => (
+  <TouchableOpacity style={styles.actionBtn} onPress={onPress}>
+    <Text style={styles.actionText}>{title}</Text>
+    <Ionicons name="chevron-forward" size={20} color={COLORS.white} />
+  </TouchableOpacity>
+);
+
 const DashboardCard = ({ title, subtitle, action = 'Calculate', image, onPress }) => (
   <ImageBackground source={image} style={styles.card} imageStyle={styles.cardImage}>
     <View style={styles.cardOverlay} />
-    <View>
-      <Text style={styles.cardTitle}>{title}</Text>
-      <Text style={styles.cardSubtitle}>{subtitle}</Text>
-    </View>
-    <TouchableOpacity style={styles.cardBtn} onPress={onPress}>
-      <Text style={styles.cardBtnText}>{action}</Text>
-      <Ionicons name="chevron-forward" size={20} color={COLORS.white} />
-    </TouchableOpacity>
+    <Text style={styles.cardTitle}>{title}</Text>
+    <Text style={styles.cardSubtitle}>{subtitle}</Text>
+    <ActionButton title={action} onPress={onPress} />
   </ImageBackground>
 );
 
@@ -32,22 +34,18 @@ const HomeScreen = ({ navigation }) => {
             <Text style={styles.name}>John Doe</Text>
           </View>
           <TouchableOpacity style={styles.bell} onPress={() => navigation.navigate('Notifications')}>
-            <Ionicons name="notifications" size={30} color={COLORS.primary} />
+            <Ionicons name="notifications" size={34} color={COLORS.primary} />
             <View style={styles.badge}><Text style={styles.badgeText}>1</Text></View>
           </TouchableOpacity>
         </View>
 
         <Text style={styles.hero}>Calculate your Nigerian tax easily</Text>
 
-        <ImageBackground source={appImages.historyCard} style={styles.salaryPanel} imageStyle={styles.salaryImage}>
-          <View style={styles.salaryOverlay} />
+        <View style={styles.salaryPanel}>
           <Text style={styles.salaryTitle}>SALARY EARNER</Text>
           <Text style={styles.salarySub}>Calculate PAYE and{'\n'}net salary</Text>
-          <TouchableOpacity style={styles.salaryBtn} onPress={() => navigation.navigate('Calculator')}>
-            <Text style={styles.cardBtnText}>Calculate</Text>
-            <Ionicons name="chevron-forward" size={20} color={COLORS.white} />
-          </TouchableOpacity>
-        </ImageBackground>
+          <ActionButton title="Calculate" onPress={() => navigation.navigate('Calculator')} />
+        </View>
 
         <DashboardCard
           title="FREELANCER"
@@ -67,16 +65,15 @@ const HomeScreen = ({ navigation }) => {
           <Text style={styles.activeHistory}>History</Text>
           <Text style={styles.stats}>Statistics</Text>
         </View>
-        <View style={styles.historyCard}>
-          <Image source={appImages.historyCard} style={styles.historyThumb} resizeMode="cover" />
-          <View style={styles.historyCopy}>
-            <Text style={styles.historyTitle}>Last Calculations</Text>
-            <Text style={styles.historyText}>Last Month</Text>
-            <Text style={styles.historyLine}>Gross income: ₦ 350,000</Text>
-            <Text style={styles.historyLine}>Estimated Tax: ₦ 28,500</Text>
-            <Text style={styles.historyLine}>Net Salary: ₦ 321,500</Text>
-          </View>
-        </View>
+        <ImageBackground source={appImages.historyCard} style={styles.historyCard} imageStyle={styles.historyImage}>
+          <View style={styles.historyOverlay} />
+          <Text style={styles.historyTitle}>Last Calculations</Text>
+          <Text style={styles.historyText}>Last Month</Text>
+          <Text style={styles.historyLine}>Gross income: ₦ 350,000</Text>
+          <Text style={styles.historyLine}>Estimated Tax: ₦ 28,500</Text>
+          <Text style={styles.historyLine}>Net Salary:      ₦ 321,500</Text>
+          <Text style={styles.historyText}>Last Month</Text>
+        </ImageBackground>
       </ScrollView>
     </SafeAreaView>
   );
@@ -84,88 +81,82 @@ const HomeScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.white },
-  content: { paddingHorizontal: SPACING.lg, paddingTop: SPACING.xl, paddingBottom: SPACING.xxl },
-  header: { flexDirection: 'row', alignItems: 'center', marginBottom: SPACING.xl },
+  content: { paddingHorizontal: SPACING.lg, paddingTop: SPACING.xl, paddingBottom: 110 },
+  header: { flexDirection: 'row', alignItems: 'center', marginBottom: SPACING.lg },
   avatar: {
-    width: 54,
-    height: 54,
-    borderRadius: 27,
+    width: 58,
+    height: 58,
+    borderRadius: 29,
     backgroundColor: COLORS.primary,
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: SPACING.sm,
   },
   morning: { fontSize: FONTS.sizes.xs, color: COLORS.textMedium },
-  name: { fontSize: FONTS.sizes.lg, color: COLORS.textDark, fontWeight: '800' },
-  bell: { marginLeft: 'auto' },
+  name: { fontSize: FONTS.sizes.lg, color: COLORS.textDark, fontWeight: '800', marginTop: -4 },
+  bell: { marginLeft: 'auto', paddingRight: SPACING.sm },
   badge: {
     position: 'absolute',
-    right: -2,
+    right: 7,
     top: 0,
-    width: 16,
-    height: 16,
-    borderRadius: 8,
+    width: 14,
+    height: 14,
+    borderRadius: 7,
     backgroundColor: COLORS.error,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  badgeText: { color: COLORS.white, fontSize: 9, fontWeight: '700' },
-  hero: { fontSize: FONTS.sizes.xl, fontWeight: '700', color: COLORS.black, marginBottom: SPACING.xl },
+  badgeText: { color: COLORS.white, fontSize: 8, fontWeight: '800' },
+  hero: { fontSize: 21, fontWeight: '700', color: COLORS.black, marginBottom: SPACING.xl },
   salaryPanel: {
-    minHeight: 210,
-    padding: SPACING.lg,
-    marginBottom: SPACING.md,
-    borderRadius: RADIUS.lg,
-    overflow: 'hidden',
-    ...SHADOWS.medium,
-  },
-  salaryImage: { borderRadius: RADIUS.lg },
-  salaryOverlay: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(255,255,255,0.74)' },
-  salaryTitle: { fontSize: FONTS.sizes.xl, fontWeight: '900', color: COLORS.textDark },
-  salarySub: { fontSize: FONTS.sizes.lg, color: COLORS.textDark, lineHeight: 30 },
-  salaryBtn: {
-    position: 'absolute',
-    right: SPACING.md,
-    bottom: SPACING.md,
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: COLORS.primary,
-    borderRadius: RADIUS.sm,
-    paddingHorizontal: SPACING.sm,
-    paddingVertical: SPACING.sm,
-  },
-  card: {
-    minHeight: 166,
-    borderRadius: RADIUS.lg,
-    padding: SPACING.lg,
-    overflow: 'hidden',
+    minHeight: 220,
+    paddingHorizontal: SPACING.lg,
+    paddingTop: SPACING.lg,
     marginBottom: SPACING.md,
     justifyContent: 'space-between',
-    ...SHADOWS.medium,
   },
-  cardImage: { borderRadius: RADIUS.lg },
-  cardOverlay: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(255,255,255,0.72)' },
-  cardTitle: { fontSize: FONTS.sizes.xl, fontWeight: '900', color: COLORS.textDark },
-  cardSubtitle: { fontSize: FONTS.sizes.lg, color: COLORS.textDark, maxWidth: '70%', lineHeight: 28 },
-  cardBtn: {
+  salaryTitle: { fontSize: 28, fontWeight: '900', color: COLORS.textDark },
+  salarySub: { fontSize: 23, color: COLORS.textDark, lineHeight: 28, marginBottom: SPACING.lg },
+  actionBtn: {
     alignSelf: 'flex-end',
     flexDirection: 'row',
     alignItems: 'center',
+    gap: SPACING.sm,
     backgroundColor: COLORS.primary,
     borderRadius: RADIUS.sm,
-    paddingHorizontal: SPACING.md,
-    paddingVertical: SPACING.sm,
+    paddingHorizontal: SPACING.sm,
+    paddingVertical: 10,
+    ...SHADOWS.medium,
   },
-  cardBtnText: { color: COLORS.white, fontWeight: '800', fontSize: FONTS.sizes.lg },
-  tabHeader: { flexDirection: 'row', gap: SPACING.xl, marginLeft: SPACING.sm, marginBottom: SPACING.sm },
-  activeHistory: { fontSize: FONTS.sizes.xl, fontWeight: '900', color: COLORS.black, borderBottomWidth: 3 },
-  stats: { fontSize: FONTS.sizes.xl, color: COLORS.black },
-  historyCard: { flexDirection: 'row', gap: SPACING.md, backgroundColor: '#EEF6EF', borderRadius: RADIUS.lg, padding: SPACING.md },
-  historyThumb: { width: 96, borderRadius: RADIUS.md },
-  historyCopy: { flex: 1 },
-  historyTitle: { fontSize: FONTS.sizes.lg, fontWeight: '800', color: COLORS.black, marginBottom: SPACING.sm },
-  historyText: { fontSize: FONTS.sizes.lg, fontWeight: '700', marginBottom: SPACING.sm },
-  historyLine: { fontSize: FONTS.sizes.lg, color: COLORS.black, marginBottom: SPACING.xs },
+  actionText: { color: COLORS.white, fontWeight: '900', fontSize: 20 },
+  card: {
+    height: 185,
+    borderRadius: 26,
+    padding: SPACING.lg,
+    overflow: 'hidden',
+    marginBottom: SPACING.lg,
+    justifyContent: 'space-between',
+    ...SHADOWS.medium,
+  },
+  cardImage: { borderRadius: 26 },
+  cardOverlay: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(255,255,255,0.66)' },
+  cardTitle: { fontSize: 28, fontWeight: '900', color: COLORS.textDark },
+  cardSubtitle: { fontSize: 22, color: COLORS.textDark, maxWidth: '64%', lineHeight: 31 },
+  tabHeader: { flexDirection: 'row', gap: SPACING.xl, marginLeft: SPACING.md, marginBottom: SPACING.sm },
+  activeHistory: { fontSize: 24, fontWeight: '900', color: COLORS.black, borderBottomWidth: 3 },
+  stats: { fontSize: 24, color: COLORS.black },
+  historyCard: {
+    minHeight: 245,
+    borderRadius: 26,
+    overflow: 'hidden',
+    padding: SPACING.md,
+    ...SHADOWS.medium,
+  },
+  historyImage: { borderRadius: 26 },
+  historyOverlay: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(255,255,255,0.72)' },
+  historyTitle: { fontSize: 20, fontWeight: '900', color: COLORS.black, marginBottom: SPACING.sm },
+  historyText: { fontSize: 20, fontWeight: '800', color: COLORS.black, marginBottom: SPACING.sm },
+  historyLine: { fontSize: 20, color: COLORS.black, marginBottom: SPACING.xs },
 });
 
 export default HomeScreen;

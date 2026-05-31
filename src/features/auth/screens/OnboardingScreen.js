@@ -11,7 +11,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import TaxeaseLogo from '../../../components/ui/TaxeaseLogo';
 import Button from '../../../components/ui/Button';
-import { COLORS, FONTS, SPACING, RADIUS } from '../../../theme/tokens';
+import { COLORS, FONTS, SPACING } from '../../../theme/tokens';
 import { useAuth } from '../../../providers/AuthProvider';
 import { appImages } from '../../../lib/assets';
 
@@ -20,6 +20,9 @@ const { width } = Dimensions.get('window');
 const SLIDES = [
   {
     id: '1',
+    title: 'Calculate Your\n',
+    titleHighlight: 'Taxes',
+    titleSuffix: ' Easily!',
     subtitle:
       'Get accurate tax estimates in seconds with our smart and simple tax calculator.',
     isFirst: true,
@@ -29,14 +32,14 @@ const SLIDES = [
     title: 'Learn About Taxes',
     subtitle:
       'Understand tax rules, payment processes, and financial responsibilities with easy-to-follow guides',
-    image: appImages.educationCard,
+    image: appImages.onboardingLearnTaxes,
   },
   {
     id: '3',
     title: 'Pay Taxes Securely',
     subtitle:
       'Make fast and secure tax payments directly from this app, anytime, anywhere.',
-    image: appImages.businessCard,
+    image: appImages.onboardingPaySecurely,
   },
   {
     id: '4',
@@ -45,7 +48,7 @@ const SLIDES = [
     titleSuffix: '\nAnytime',
     subtitle:
       'Download and store your payment receipts for easy tracking and future reference',
-    image: appImages.historyCard,
+    image: appImages.onboardingReceipts,
     isLast: true,
   },
 ];
@@ -53,44 +56,30 @@ const SLIDES = [
 const OnboardingItem = ({ item }) => {
   return (
     <View style={[styles.slide, { width }]}>
-      {!item.isFirst ? (
-        <View style={styles.topLogo}>
-          <TaxeaseLogo size={36} showText={false} />
-        </View>
-      ) : null}
+      <View style={styles.topRow}>
+        <TaxeaseLogo size={46} showText={false} />
+        <TouchableOpacity>
+          <Text style={styles.skipText}>Skip</Text>
+        </TouchableOpacity>
+      </View>
 
-      <TouchableOpacity style={styles.skipBtn}>
-        <Text style={styles.skipText}>Skip</Text>
-      </TouchableOpacity>
-
-      <View style={styles.content}>
+      <View style={styles.artWrap}>
         {item.isFirst ? (
-          <>
-            <TaxeaseLogo size={70} showText={true} textSize={28} />
-            <View style={styles.titleWrap}>
-              <Text style={styles.titleBig}>
-                Calculate Your{'\n'}
-                <Text style={styles.titleGreen}>Taxes</Text>
-                <Text style={styles.titleBig}> Easily!</Text>
-              </Text>
-            </View>
-            <Text style={styles.subtitle}>{item.subtitle}</Text>
-          </>
+          <TaxeaseLogo size={156} showText={false} />
         ) : (
-          <>
-            <Image source={item.image} style={styles.slideImage} resizeMode="cover" />
-            <View style={styles.textBox}>
-              <Text style={styles.slideTitle}>
-                {item.title}
-                {item.titleHighlight ? (
-                  <Text style={styles.slideGreen}>{item.titleHighlight}</Text>
-                ) : null}
-                {item.titleSuffix || ''}
-              </Text>
-              <Text style={styles.slideSubtitle}>{item.subtitle}</Text>
-            </View>
-          </>
+          <Image source={item.image} style={styles.slideImage} resizeMode="cover" />
         )}
+      </View>
+
+      <View style={styles.copy}>
+        <Text style={styles.slideTitle}>
+          {item.title}
+          {item.titleHighlight ? (
+            <Text style={styles.slideGreen}>{item.titleHighlight}</Text>
+          ) : null}
+          {item.titleSuffix || ''}
+        </Text>
+        <Text style={styles.slideSubtitle}>{item.subtitle}</Text>
       </View>
     </View>
   );
@@ -140,6 +129,7 @@ const OnboardingScreen = ({ navigation }) => {
           title={currentIndex === SLIDES.length - 1 ? 'Get Started' : 'Next'}
           onPress={handleNext}
           style={styles.nextBtn}
+          textStyle={styles.nextText}
         />
         <View style={styles.dots}>
           {SLIDES.map((_, i) => (
@@ -162,76 +152,48 @@ const styles = StyleSheet.create({
   slide: {
     flex: 1,
     paddingHorizontal: SPACING.lg,
-    paddingTop: SPACING.md,
+    paddingTop: SPACING.xl,
   },
-  topLogo: {
-    marginBottom: SPACING.sm,
-  },
-  skipBtn: {
-    position: 'absolute',
-    top: SPACING.md,
-    right: SPACING.lg,
-    zIndex: 2,
+  topRow: {
+    minHeight: 72,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   skipText: {
-    fontSize: FONTS.sizes.md,
-    color: COLORS.gray500,
+    fontSize: 28,
+    color: '#D1D1D1',
+    fontWeight: '400',
   },
-  content: {
-    flex: 1,
-    alignItems: 'center',
+  artWrap: {
+    height: Math.min(width * 0.72, 380),
     justifyContent: 'center',
-    paddingTop: SPACING.lg,
-  },
-  titleWrap: {
-    marginTop: SPACING.xl,
-    alignSelf: 'flex-start',
-    width: '100%',
-  },
-  titleBig: {
-    fontSize: FONTS.sizes.xxxl,
-    fontWeight: '800',
-    color: COLORS.secondary,
-    lineHeight: 44,
-  },
-  titleGreen: {
-    color: COLORS.primaryLight,
-    fontWeight: '800',
-    fontSize: FONTS.sizes.xxxl,
-  },
-  subtitle: {
-    marginTop: SPACING.md,
-    fontSize: FONTS.sizes.md,
-    color: COLORS.textMedium,
-    lineHeight: 24,
-    alignSelf: 'flex-start',
+    alignItems: 'center',
+    overflow: 'hidden',
+    marginTop: SPACING.lg,
   },
   slideImage: {
-    width: '100%',
-    height: Math.min(width * 0.72, 310),
-    borderRadius: RADIUS.lg,
-    marginBottom: SPACING.md,
+    width: '116%',
+    height: '118%',
   },
-  textBox: {
-    borderWidth: 1.5,
-    borderColor: '#4A90D9',
-    borderRadius: RADIUS.md,
-    padding: SPACING.md,
-    width: '100%',
+  copy: {
+    marginTop: SPACING.xl,
   },
   slideTitle: {
-    fontSize: FONTS.sizes.xxl,
+    fontSize: 56,
+    lineHeight: 66,
     fontWeight: '800',
     color: COLORS.textDark,
-    marginBottom: SPACING.sm,
+    marginBottom: SPACING.xl,
   },
   slideGreen: {
     color: COLORS.primaryLight,
   },
   slideSubtitle: {
-    fontSize: FONTS.sizes.md,
-    color: COLORS.textMedium,
-    lineHeight: 22,
+    fontSize: 28,
+    lineHeight: 42,
+    color: COLORS.black,
+    fontWeight: '500',
   },
   bottomBar: {
     paddingHorizontal: SPACING.lg,
@@ -240,20 +202,26 @@ const styles = StyleSheet.create({
   },
   nextBtn: {
     width: '100%',
+    minHeight: 78,
+    borderRadius: 28,
+  },
+  nextText: {
+    fontSize: 32,
+    fontWeight: '800',
   },
   dots: {
     flexDirection: 'row',
-    marginTop: SPACING.md,
+    marginTop: SPACING.xl,
     gap: SPACING.sm,
   },
   dot: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
-    backgroundColor: COLORS.gray300,
+    width: 18,
+    height: 18,
+    borderRadius: 9,
+    backgroundColor: '#D1D1D1',
   },
   activeDot: {
-    backgroundColor: COLORS.textDark,
+    backgroundColor: COLORS.black,
   },
 });
 

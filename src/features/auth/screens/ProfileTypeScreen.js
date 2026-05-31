@@ -22,11 +22,13 @@ const ProfileTypeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
-        <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back-circle-outline" size={40} color={COLORS.black} />
-        </TouchableOpacity>
-
-        <Text style={styles.title}>Profile Type</Text>
+        <View style={styles.header}>
+          <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
+            <Ionicons name="arrow-back-circle-outline" size={31} color={COLORS.black} />
+          </TouchableOpacity>
+          <Text style={styles.title}>Profile Type</Text>
+          <View style={styles.headerSpacer} />
+        </View>
         <Text style={styles.subtitle}>Select the option that describes you :</Text>
 
         {OPTIONS.map((item) => (
@@ -45,42 +47,49 @@ const ProfileTypeScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.white },
-  content: { paddingHorizontal: SPACING.lg, paddingTop: SPACING.xl, paddingBottom: SPACING.xxl },
-  backBtn: { width: 44, marginBottom: SPACING.sm },
+  content: { paddingHorizontal: SPACING.lg, paddingTop: SPACING.md, paddingBottom: SPACING.xxl },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: SPACING.sm,
+  },
+  backBtn: { width: 40, height: 40, justifyContent: 'center' },
+  headerSpacer: { width: 40 },
   title: {
-    fontSize: FONTS.sizes.xxl,
-    lineHeight: 44,
+    fontSize: 27,
+    lineHeight: 34,
     fontWeight: '800',
     color: COLORS.textDark,
     textAlign: 'center',
-    marginBottom: SPACING.md,
   },
-  subtitle: { fontSize: 21, color: '#424B5A', marginBottom: SPACING.xl },
+  subtitle: { fontSize: 15, color: '#424B5A', marginBottom: SPACING.md },
   card: {
-    height: 230,
+    height: 174,
     borderRadius: RADIUS.lg,
     overflow: 'hidden',
     marginBottom: SPACING.xl,
-    padding: SPACING.xl,
+    padding: SPACING.md,
     justifyContent: 'space-between',
     ...SHADOWS.medium,
   },
   cardImage: { borderRadius: RADIUS.lg },
   cardFade: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(255,255,255,0.58)',
+    backgroundColor: 'rgba(255,255,255,0.66)',
   },
-  cardTitle: { fontSize: FONTS.sizes.xl, fontWeight: '900', color: COLORS.textDark },
+  cardTitle: { fontSize: 20, fontWeight: '900', color: COLORS.textDark },
   selectBtn: {
     alignSelf: 'flex-end',
     backgroundColor: COLORS.primary,
-    paddingHorizontal: SPACING.xl,
-    paddingVertical: SPACING.md,
-    borderRadius: RADIUS.md,
-    minWidth: 120,
+    paddingHorizontal: SPACING.lg,
+    paddingVertical: 9,
+    borderRadius: RADIUS.full,
+    minWidth: 72,
     alignItems: 'center',
+    ...SHADOWS.small,
   },
-  selectText: { color: COLORS.white, fontWeight: '800', fontSize: FONTS.sizes.lg },
+  selectText: { color: COLORS.white, fontWeight: '800', fontSize: 11 },
 });
 
 export default ProfileTypeScreen;
