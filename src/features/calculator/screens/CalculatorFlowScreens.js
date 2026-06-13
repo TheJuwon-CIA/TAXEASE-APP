@@ -1,10 +1,11 @@
 import React, { useMemo, useState } from 'react';
 import AppText from '../../../components/AppText';
-import { View, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS, FONTS, SPACING, RADIUS } from '../../../theme/tokens';
 import { AmountField, PeriodToggle, formatCurrency, parseAmount } from './CalculatorScreen';
+import { taxAPI } from '../../../lib/api-client';
 
 const Back = ({ navigation }) => (
   <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
@@ -12,14 +13,14 @@ const Back = ({ navigation }) => (
   </TouchableOpacity>
 );
 
-const CalcShell = ({ title, subtitle, children, buttonTitle = 'Continue', onContinue }) => (
+const CalcShell = ({ title, subtitle, children, buttonTitle = 'Continue', onContinue, loading }) => (
   <SafeAreaView style={styles.container}>
     <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
       <AppText style={styles.pill}>{title}</AppText>
       <AppText style={styles.heading}>{subtitle}</AppText>
       {children}
-      <TouchableOpacity style={styles.continueBtn} onPress={onContinue}>
-        <AppText style={styles.continueText}>{buttonTitle}</AppText>
+      <TouchableOpacity style={styles.continueBtn} onPress={onContinue} disabled={loading}>
+        <AppText style={styles.continueText}>{loading ? 'Calculating...' : buttonTitle}</AppText>
       </TouchableOpacity>
     </ScrollView>
   </SafeAreaView>
@@ -103,6 +104,7 @@ const buildPayeCalculation = (grossIncome, deductions) => {
 export const IndividualDeductionsScreen = ({ navigation, route }) => {
   const grossIncome = route?.params?.grossIncome || 0;
   const income = route?.params?.income || {};
+  const [loading, setLoading] = useState(false);
   const [deductions, setDeductions] = useState({
     pensionContribution: '',
     rentRelief: '',
@@ -118,11 +120,32 @@ export const IndividualDeductionsScreen = ({ navigation, route }) => {
     setDeductions((current) => ({ ...current, [key]: value }));
   };
 
+  const handleContinue = async () => {
+    setLoading(true);
+    try {
+      await taxAPI.calculatePAYE({
+        gross_income: grossIncome,
+        pension_contribution: parseAmount(deductions.pensionContribution),
+        rent_relief: parseAmount(deductions.rentRelief),
+        housing_fund: parseAmount(deductions.housingFund),
+        total_deductions: totalDeductions,
+        income_breakdown: income,
+      });
+    } catch (err) {
+      // Use local calculation as fallback if API fails
+      console.warn('API calculation failed, using local calculation:', err?.message);
+    } finally {
+      setLoading(false);
+      navigation.navigate('PAYETaxDetails', { income, deductions, grossIncome, totalDeductions });
+    }
+  };
+
   return (
     <CalcShell
       title="Individuals"
       subtitle={'Input what reduces taxable\nincome'}
-      onContinue={() => navigation.navigate('PAYETaxDetails', { income, deductions, grossIncome, totalDeductions })}
+      onContinue={handleContinue}
+      loading={loading}
     >
       <View style={styles.row}>
         <AppText style={styles.sectionTitle}>Deduction/Credit</AppText>
@@ -145,16 +168,40 @@ export const SMEIncomeScreen = ({ navigation }) => {
     serviceIncome: '',
     investments: '',
   });
+  const [loading, setLoading] = useState(false);
+
   const grossIncome = useMemo(
     () => Object.values(income).reduce((total, value) => total + parseAmount(value), 0),
     [income]
   );
 
+  const handleContinue = async () => {
+    if (!income.businessRevenue || parseAmount(income.businessRevenue) === 0) {
+      Alert.alert('Error', 'Please enter your business revenue to continue.');
+      return;
+    }
+    setLoading(true);
+    try {
+      await taxAPI.calculateSME({
+        business_revenue: parseAmount(income.businessRevenue),
+        service_income: parseAmount(income.serviceIncome),
+        investments: parseAmount(income.investments),
+        gross_income: grossIncome,
+      });
+    } catch (err) {
+      console.warn('SME API calculation failed, continuing with local data:', err?.message);
+    } finally {
+      setLoading(false);
+      navigation.navigate('SMEDeductions', { income, grossIncome });
+    }
+  };
+
   return (
     <CalcShell
       title="SMEs"
       subtitle={'Enter your business income details for\naccurate tax calculation'}
-      onContinue={() => navigation.navigate('SMEDeductions', { income, grossIncome })}
+      onContinue={handleContinue}
+      loading={loading}
     >
       <View style={styles.row}>
         <AppText style={styles.sectionTitle}>Income Details</AppText>
@@ -174,16 +221,37 @@ export const SMEDeductionsScreen = ({ navigation, route }) => {
     loan: '',
     taxCredits: '',
   });
+  const [loading, setLoading] = useState(false);
+
   const totalDeductions = useMemo(
     () => Object.values(deductions).reduce((total, value) => total + parseAmount(value), 0),
     [deductions]
   );
 
+  const handleContinue = async () => {
+    setLoading(true);
+    try {
+      await taxAPI.calculateSME({
+        ...route?.params,
+        business_expenses: parseAmount(deductions.businessExpenses),
+        loan: parseAmount(deductions.loan),
+        tax_credits: parseAmount(deductions.taxCredits),
+        total_deductions: totalDeductions,
+      });
+    } catch (err) {
+      console.warn('SME deductions API failed, continuing with local data:', err?.message);
+    } finally {
+      setLoading(false);
+      navigation.navigate('SMETaxBand', { ...route?.params, deductions, totalDeductions });
+    }
+  };
+
   return (
     <CalcShell
       title="SMEs"
       subtitle={'Input allowable deductions to\ncalculate taxable income'}
-      onContinue={() => navigation.navigate('SMETaxBand', { ...route?.params, deductions, totalDeductions })}
+      onContinue={handleContinue}
+      loading={loading}
     >
       <View style={styles.row}>
         <AppText style={styles.sectionTitle}>Deduction/Credit</AppText>
@@ -317,6 +385,29 @@ const TaxBand = ({ navigation, rows, headerLeft, note, button, onPress }) => (
 export const PAYEResultScreen = ({ navigation, route }) => {
   const calculation = route?.params?.calculation || buildPayeCalculation(0, 0);
   const totalTaxAndDeductions = calculation.monthlyTax + calculation.monthlyDeductions;
+  const [saving, setSaving] = useState(false);
+
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      await taxAPI.saveCalculation({
+        type: 'paye',
+        monthly_gross: calculation.monthlyGross,
+        monthly_deductions: calculation.monthlyDeductions,
+        monthly_tax: calculation.monthlyTax,
+        monthly_net_income: calculation.monthlyNetIncome,
+        annual_gross: calculation.annualGross,
+        annual_tax: calculation.annualTax,
+        annual_taxable_income: calculation.annualTaxableIncome,
+        tax_rate: calculation.taxRate,
+      });
+      navigation.navigate('SavedSuccess');
+    } catch (err) {
+      Alert.alert('Save Failed', err?.message || 'Failed to save results. Please try again.');
+    } finally {
+      setSaving(false);
+    }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -341,8 +432,8 @@ export const PAYEResultScreen = ({ navigation, route }) => {
             <AppText style={styles.summaryValue}>{value}</AppText>
           </View>
         ))}
-        <TouchableOpacity style={styles.continueBtn} onPress={() => navigation.navigate('SavedSuccess')}>
-          <AppText style={styles.continueText}>Save Results</AppText>
+        <TouchableOpacity style={styles.continueBtn} onPress={handleSave} disabled={saving}>
+          <AppText style={styles.continueText}>{saving ? 'Saving...' : 'Save Results'}</AppText>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>

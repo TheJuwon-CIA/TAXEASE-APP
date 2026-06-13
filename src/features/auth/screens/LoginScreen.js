@@ -136,98 +136,25 @@ const LoginScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: COLORS.white,
-  },
-  scroll: {
-    paddingHorizontal: SPACING.lg,
-    paddingBottom: SPACING.xl,
-  },
-  backBtn: {
-    marginTop: SPACING.md,
-    marginBottom: SPACING.lg,
-    width: 36,
-  },
-  title: {
-    fontSize: FONTS.sizes.display,
-    fontWeight: '800',
-    color: COLORS.primaryLight,
-    marginBottom: SPACING.xs,
-  },
-  subtitle: {
-    fontSize: FONTS.sizes.md,
-    color: COLORS.textMedium,
-    marginBottom: SPACING.xl,
-  },
-  form: {
-    marginBottom: SPACING.sm,
-  },
-  rememberRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginTop: SPACING.xs,
-  },
-  checkRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: SPACING.sm,
-  },
-  checkbox: {
-    width: 20,
-    height: 20,
-    borderWidth: 1.5,
-    borderColor: COLORS.checkboxBorder,
-    borderRadius: 4,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  checkedBox: {
-    backgroundColor: COLORS.primaryLight,
-    borderColor: COLORS.primaryLight,
-  },
-  rememberText: {
-    fontSize: FONTS.sizes.md,
-    color: COLORS.textDark,
-  },
-  forgotText: {
-    fontSize: FONTS.sizes.md,
-    color: COLORS.primaryLight,
-    fontWeight: '600',
-  },
-  loginBtn: {
-    marginTop: SPACING.xl,
-  },
-  signupRow: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginTop: SPACING.md,
-    marginBottom: SPACING.sm,
-  },
-  signupText: {
-    fontSize: FONTS.sizes.md,
-    color: COLORS.textDark,
-  },
-  signupLink: {
-    fontSize: FONTS.sizes.md,
-    color: COLORS.primaryLight,
-    fontWeight: '700',
-  },
-  orText: {
-    textAlign: 'center',
-    fontSize: FONTS.sizes.md,
-    color: COLORS.textMedium,
-    marginVertical: SPACING.md,
-  },
-  googleText: {
-    color: COLORS.textDark,
-    fontWeight: '600',
-  },
-  googleIcon: {
-    width: 20,
-    height: 20,
-  },
+  container: { flex: 1, backgroundColor: COLORS.white },
+  scroll: { paddingHorizontal: SPACING.lg, paddingBottom: SPACING.xl },
+  backBtn: { marginTop: SPACING.md, marginBottom: SPACING.lg, width: 36 },
+  title: { fontSize: FONTS.sizes.display, fontWeight: '800', color: COLORS.primaryLight, marginBottom: SPACING.xs },
+  subtitle: { fontSize: FONTS.sizes.md, color: COLORS.textMedium, marginBottom: SPACING.xl },
+  form: { marginBottom: SPACING.sm },
+  rememberRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: SPACING.xs },
+  checkRow: { flexDirection: 'row', alignItems: 'center', gap: SPACING.sm },
+  checkbox: { width: 20, height: 20, borderWidth: 1.5, borderColor: COLORS.checkboxBorder, borderRadius: 4, alignItems: 'center', justifyContent: 'center' },
+  checkedBox: { backgroundColor: COLORS.primaryLight, borderColor: COLORS.primaryLight },
+  rememberText: { fontSize: FONTS.sizes.md, color: COLORS.textDark },
+  forgotText: { fontSize: FONTS.sizes.md, color: COLORS.primaryLight, fontWeight: '600' },
+  loginBtn: { marginTop: SPACING.xl },
+  signupRow: { flexDirection: 'row', justifyContent: 'center', marginTop: SPACING.md, marginBottom: SPACING.sm },
+  signupText: { fontSize: FONTS.sizes.md, color: COLORS.textDark },
+  signupLink: { fontSize: FONTS.sizes.md, color: COLORS.primaryLight, fontWeight: '700' },
+  orText: { textAlign: 'center', fontSize: FONTS.sizes.md, color: COLORS.textMedium, marginVertical: SPACING.md },
+  googleText: { color: COLORS.textDark, fontWeight: '600' },
+  googleIcon: { width: 20, height: 20 },
 });
 
 export default LoginScreen;

@@ -17,11 +17,7 @@ const demoUser = (type) => ({
 const Field = ({ label, placeholder, compact }) => (
   <View style={[styles.field, compact && styles.compactField]}>
     <AppText style={styles.label}>{label}</AppText>
-    <TextInput
-      placeholder={placeholder}
-      placeholderTextColor="#9CA3AF"
-      style={[styles.input, compact && styles.compactInput]}
-    />
+    <TextInput placeholder={placeholder} placeholderTextColor="#9CA3AF" style={[styles.input, compact && styles.compactInput]} />
   </View>
 );
 
@@ -48,19 +44,16 @@ const SetupShell = ({ title, subtitle, children, onSave, navigation }) => (
 export const FreelancerProfileForm = ({ navigation }) => {
   const { login } = useAuth();
   const save = () => login(demoUser('individual'), 'demo-token');
-
   return (
     <SetupShell title="Freelancer Profile" subtitle="Set your freelancer account" onSave={save} navigation={navigation}>
       <SectionTitle>Personal Information:</SectionTitle>
       <Field label="Full Name" placeholder="Input your name" />
       <Field label="Email Address" placeholder="Input your email" />
       <Field label="Phone Number" placeholder="Input your phone number" />
-
       <SectionTitle>Freelancer Information:</SectionTitle>
       <Field label="Profession" />
       <Field label="Monthly Income" />
       <Field label="Years Of Experience" />
-
       <SectionTitle>Tax Information:</SectionTitle>
       <Field label="TIN:" />
       <Field label="Estimated Annual Income" />
@@ -71,7 +64,6 @@ export const FreelancerProfileForm = ({ navigation }) => {
 export const EmployeeProfileForm = ({ navigation }) => {
   const { login } = useAuth();
   const save = () => login(demoUser('individual'), 'demo-token');
-
   return (
     <SetupShell title="Employee Profile" subtitle="Set your employee account" onSave={save} navigation={navigation}>
       <SectionTitle>Personal Information:</SectionTitle>
@@ -79,35 +71,21 @@ export const EmployeeProfileForm = ({ navigation }) => {
       <Field label="Email Address" placeholder="Input your email" />
       <Field label="Phone Number" placeholder="Input your phone number" />
       <Field label="Residential Address" placeholder="Input your residential address" />
-
       <SectionTitle>Employment Information:</SectionTitle>
       <Field label="Company Name" placeholder="E.g. John Enterprise" />
       <Field label="Job Title" placeholder="E.g. Manager" />
       <Field label="Employment Type" placeholder="E.g. Full Time" />
       <Field label="Years Of Experience" placeholder="E.g. 2 years" />
-
       <SectionTitle>Salary Information:</SectionTitle>
-      <View style={styles.inlineLine}>
-        <AppText style={styles.inlineLabel}>Monthly Salary:</AppText>
-        <Field compact />
-      </View>
-      <View style={styles.inlineLine}>
-        <AppText style={styles.inlineLabel}>Salary Frequency:</AppText>
-        <Field compact />
-      </View>
-
+      <View style={styles.inlineLine}><AppText style={styles.inlineLabel}>Monthly Salary:</AppText><Field compact /></View>
+      <View style={styles.inlineLine}><AppText style={styles.inlineLabel}>Salary Frequency:</AppText><Field compact /></View>
       <SectionTitle>Tax & Deductions:</SectionTitle>
-      <View style={styles.inlineLine}>
-        <AppText style={styles.inlineLabel}>TIN:</AppText>
-        <Field compact />
-      </View>
-
+      <View style={styles.inlineLine}><AppText style={styles.inlineLabel}>TIN:</AppText><Field compact /></View>
       <SectionTitle>Others:</SectionTitle>
       <View style={styles.inlineLine}><AppText style={styles.inlineLabel}>Pension:</AppText><Field compact /></View>
       <View style={styles.inlineLine}><AppText style={styles.inlineLabel}>NHF Deductions:</AppText><Field compact /></View>
       <View style={styles.inlineLine}><AppText style={styles.inlineLabel}>NHIS Deductions:</AppText><Field compact /></View>
       <View style={styles.inlineLine}><AppText style={styles.inlineLabel}>Registered with FIRS:</AppText><Field compact /></View>
-
       <SectionTitle>Notification Preferences:</SectionTitle>
       <View style={styles.inlineLine}><AppText style={styles.inlineLabel}>Salary tax reminders:</AppText><Field compact /></View>
       <View style={styles.inlineLine}><AppText style={styles.inlineLabel}>Monthly reports:</AppText><Field compact /></View>
@@ -118,32 +96,24 @@ export const EmployeeProfileForm = ({ navigation }) => {
 export const BusinessProfileForm = ({ navigation }) => {
   const { login } = useAuth();
   const save = () => login(demoUser('business'), 'demo-token');
-
   return (
     <SetupShell title="Business Owner Profile" subtitle="Set your business account" onSave={save} navigation={navigation}>
       <SectionTitle>Personal Information:</SectionTitle>
       <Field label="Full Name" placeholder="Input your name" />
       <Field label="Email Address" placeholder="Input your email" />
       <Field label="Phone Number" placeholder="Input your phone number" />
-
       <SectionTitle>Business Information:</SectionTitle>
       <Field label="Business Name" placeholder="E.g. John Enterprise" />
       <Field label="Business Type" placeholder="E.g. Sole Proprietorship" />
       <Field label="Industry Category" />
       <Field label="CAC Registration Number" placeholder="E.g. 1268" />
-
       <SectionTitle>Financial Information:</SectionTitle>
       <Field label="Estimated Monthly Revenue" />
       <Field label="Number Of Employees" />
       <Field label="Business Bank Name" />
       <Field label="Business Account Number" />
-
       <SectionTitle>Tax Information:</SectionTitle>
-      <View style={styles.inlineLine}>
-        <AppText style={styles.inlineLabel}>TIN:</AppText>
-        <Field compact />
-      </View>
-
+      <View style={styles.inlineLine}><AppText style={styles.inlineLabel}>TIN:</AppText><Field compact /></View>
       <SectionTitle>Notification Preferences:</SectionTitle>
       <View style={styles.inlineLine}><AppText style={styles.inlineLabel}>Salary tax reminders:</AppText><Field compact /></View>
       <View style={styles.inlineLine}><AppText style={styles.inlineLabel}>Monthly reports:</AppText><Field compact /></View>
@@ -162,27 +132,10 @@ const styles = StyleSheet.create({
   field: { marginBottom: SPACING.sm },
   compactField: { flex: 1, marginBottom: 0 },
   label: { fontSize: 12, color: COLORS.textDark, fontWeight: '800', marginBottom: 3 },
-  input: {
-    height: 31,
-    borderWidth: 1,
-    borderColor: COLORS.black,
-    borderRadius: 6,
-    backgroundColor: COLORS.white,
-    paddingHorizontal: 8,
-    fontSize: 12,
-    color: COLORS.textDark,
-  },
+  input: { height: 31, borderWidth: 1, borderColor: COLORS.black, borderRadius: 6, backgroundColor: COLORS.white, paddingHorizontal: 8, fontSize: 12, color: COLORS.textDark },
   compactInput: { height: 28 },
   inlineLine: { flexDirection: 'row', alignItems: 'center', gap: SPACING.sm, marginBottom: SPACING.sm },
   inlineLabel: { minWidth: 122, fontSize: 12, color: COLORS.textDark },
-  saveBtn: {
-    alignSelf: 'flex-end',
-    marginTop: SPACING.xl,
-    backgroundColor: COLORS.primary,
-    paddingHorizontal: SPACING.md,
-    paddingVertical: SPACING.md,
-    borderRadius: RADIUS.sm,
-    ...SHADOWS.medium,
-  },
+  saveBtn: { alignSelf: 'flex-end', marginTop: SPACING.xl, backgroundColor: COLORS.primary, paddingHorizontal: SPACING.md, paddingVertical: SPACING.md, borderRadius: RADIUS.sm, ...SHADOWS.medium },
   saveText: { color: COLORS.white, fontSize: 18, fontWeight: '900' },
 });

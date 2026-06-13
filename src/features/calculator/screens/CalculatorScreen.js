@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import AppText from '../../../components/AppText';
-import { View, StyleSheet, TouchableOpacity, ScrollView, TextInput } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, ScrollView, TextInput, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS, FONTS, SPACING, RADIUS } from '../../../theme/tokens';
 
@@ -38,6 +38,10 @@ const CalculatorScreen = ({ navigation }) => {
   };
 
   const continueToDeductions = () => {
+    if (!income.basicSalary || parseAmount(income.basicSalary) === 0) {
+      Alert.alert('Error', 'Please enter your basic salary to continue.');
+      return;
+    }
     navigation.navigate('IndividualDeductions', {
       income,
       grossIncome,

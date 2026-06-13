@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import AppText from '../../../components/AppText';
-import {
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  ScrollView,
-} from 'react-native';
+import { View, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import InputField from '../../../components/ui/InputField';
@@ -36,140 +31,47 @@ const CreateNewPasswordScreen = ({ navigation, route }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView
-        contentContainerStyle={styles.scroll}
-        keyboardShouldPersistTaps="handled"
-        showsVerticalScrollIndicator={false}
-      >
+      <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
         <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
           <Ionicons name="chevron-back" size={26} color={COLORS.textDark} />
         </TouchableOpacity>
-
-        {/* Lock icon */}
         <View style={styles.iconWrap}>
           <Ionicons name="lock-closed" size={60} color={COLORS.primaryLight} />
         </View>
-
         <AppText style={styles.title}>Create New Password</AppText>
-        <AppText style={styles.subtitle}>
-          Please use a strong, new password that you haven't used before.
-        </AppText>
-
-        <InputField
-          placeholder="New Password"
-          value={password}
-          onChangeText={setPassword}
-          secureTextEntry
-          leftIcon={
-            <Ionicons name="lock-closed-outline" size={18} color={COLORS.gray500} />
-          }
-          style={styles.input}
-        />
-
-        <InputField
-          placeholder="Confirm Password"
-          value={confirm}
-          onChangeText={setConfirm}
-          secureTextEntry
-          leftIcon={
-            <Ionicons name="lock-closed-outline" size={18} color={COLORS.gray500} />
-          }
-          style={styles.input}
-        />
-
-        {/* Rules checklist */}
+        <AppText style={styles.subtitle}>Please use a strong, new password that you haven't used before.</AppText>
+        <InputField placeholder="New Password" value={password} onChangeText={setPassword} secureTextEntry leftIcon={<Ionicons name="lock-closed-outline" size={18} color={COLORS.gray500} />} style={styles.input} />
+        <InputField placeholder="Confirm Password" value={confirm} onChangeText={setConfirm} secureTextEntry leftIcon={<Ionicons name="lock-closed-outline" size={18} color={COLORS.gray500} />} style={styles.input} />
         <View style={styles.rulesList}>
           {RULES.map((rule) => {
             const passed = rule.test(password);
             return (
               <View key={rule.label} style={styles.ruleRow}>
-                <Ionicons
-                  name="checkmark"
-                  size={16}
-                  color={passed ? COLORS.primaryLight : COLORS.gray400}
-                />
-                <AppText
-                  style={[
-                    styles.ruleText,
-                    passed && styles.ruleTextPassed,
-                  ]}
-                >
-                  {rule.label}
-                </AppText>
+                <Ionicons name="checkmark" size={16} color={passed ? COLORS.primaryLight : COLORS.gray400} />
+                <AppText style={[styles.ruleText, passed && styles.ruleTextPassed]}>{rule.label}</AppText>
               </View>
             );
           })}
         </View>
-
-        <Button
-          title="Reset Password"
-          onPress={handleReset}
-          loading={loading}
-          style={styles.btn}
-        />
+        <Button title="Reset Password" onPress={handleReset} loading={loading} style={styles.btn} />
       </ScrollView>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: COLORS.white,
-  },
-  scroll: {
-    paddingHorizontal: SPACING.lg,
-    paddingBottom: SPACING.xl,
-    alignItems: 'center',
-  },
-  backBtn: {
-    alignSelf: 'flex-start',
-    marginTop: SPACING.md,
-    marginBottom: SPACING.lg,
-    width: 36,
-  },
-  iconWrap: {
-    marginBottom: SPACING.lg,
-  },
-  title: {
-    fontSize: FONTS.sizes.xxl,
-    fontWeight: '800',
-    color: COLORS.primaryLight,
-    textAlign: 'center',
-    marginBottom: SPACING.sm,
-  },
-  subtitle: {
-    fontSize: FONTS.sizes.md,
-    color: COLORS.textMedium,
-    textAlign: 'center',
-    lineHeight: 22,
-    marginBottom: SPACING.xl,
-  },
-  input: {
-    width: '100%',
-  },
-  rulesList: {
-    alignSelf: 'flex-start',
-    marginTop: SPACING.md,
-    marginBottom: SPACING.xl,
-    gap: SPACING.sm,
-  },
-  ruleRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: SPACING.sm,
-  },
-  ruleText: {
-    fontSize: FONTS.sizes.md,
-    color: COLORS.gray500,
-  },
-  ruleTextPassed: {
-    color: COLORS.textDark,
-    fontWeight: '500',
-  },
-  btn: {
-    width: '100%',
-  },
+  container: { flex: 1, backgroundColor: COLORS.white },
+  scroll: { paddingHorizontal: SPACING.lg, paddingBottom: SPACING.xl, alignItems: 'center' },
+  backBtn: { alignSelf: 'flex-start', marginTop: SPACING.md, marginBottom: SPACING.lg, width: 36 },
+  iconWrap: { marginBottom: SPACING.lg },
+  title: { fontSize: FONTS.sizes.xxl, fontWeight: '800', color: COLORS.primaryLight, textAlign: 'center', marginBottom: SPACING.sm },
+  subtitle: { fontSize: FONTS.sizes.md, color: COLORS.textMedium, textAlign: 'center', lineHeight: 22, marginBottom: SPACING.xl },
+  input: { width: '100%' },
+  rulesList: { alignSelf: 'flex-start', marginTop: SPACING.md, marginBottom: SPACING.xl, gap: SPACING.sm },
+  ruleRow: { flexDirection: 'row', alignItems: 'center', gap: SPACING.sm },
+  ruleText: { fontSize: FONTS.sizes.md, color: COLORS.gray500 },
+  ruleTextPassed: { color: COLORS.textDark, fontWeight: '500' },
+  btn: { width: '100%' },
 });
 
 export default CreateNewPasswordScreen;

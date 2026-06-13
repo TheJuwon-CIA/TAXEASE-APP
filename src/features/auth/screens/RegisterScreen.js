@@ -56,63 +56,21 @@ const RegisterScreen = ({ navigation }) => {
           Create An Account With Taxease To Get Started
         </AppText>
 
-        <InputField
-          placeholder="First Name"
-          value={form.firstName}
-          onChangeText={(v) => updateField('firstName', v)}
-          autoCapitalize="words"
-          error={errors.firstName}
-        />
-        <InputField
-          placeholder="Last Name"
-          value={form.lastName}
-          onChangeText={(v) => updateField('lastName', v)}
-          autoCapitalize="words"
-          error={errors.lastName}
-        />
-        <InputField
-          placeholder="Email Address"
-          value={form.email}
-          onChangeText={(v) => updateField('email', v)}
-          keyboardType="email-address"
-          error={errors.email}
-        />
-        <InputField
-          placeholder="Create Password"
-          value={form.password}
-          onChangeText={(v) => updateField('password', v)}
-          secureTextEntry
-          error={errors.password}
-        />
-        <InputField
-          placeholder="Confirm Password"
-          value={form.confirmPassword}
-          onChangeText={(v) => updateField('confirmPassword', v)}
-          secureTextEntry
-          error={errors.confirmPassword}
-        />
+        <InputField placeholder="First Name" value={form.firstName} onChangeText={(v) => updateField('firstName', v)} autoCapitalize="words" error={errors.firstName} />
+        <InputField placeholder="Last Name" value={form.lastName} onChangeText={(v) => updateField('lastName', v)} autoCapitalize="words" error={errors.lastName} />
+        <InputField placeholder="Email Address" value={form.email} onChangeText={(v) => updateField('email', v)} keyboardType="email-address" error={errors.email} />
+        <InputField placeholder="Create Password" value={form.password} onChangeText={(v) => updateField('password', v)} secureTextEntry error={errors.password} />
+        <InputField placeholder="Confirm Password" value={form.confirmPassword} onChangeText={(v) => updateField('confirmPassword', v)} secureTextEntry error={errors.confirmPassword} />
 
-        <TouchableOpacity
-          style={styles.termsRow}
-          onPress={() => setAgreeTerms(!agreeTerms)}
-        >
+        <TouchableOpacity style={styles.termsRow} onPress={() => setAgreeTerms(!agreeTerms)}>
           <View style={[styles.checkbox, agreeTerms && styles.checkedBox]}>
-            {agreeTerms && (
-              <Ionicons name="checkmark" size={14} color={COLORS.white} />
-            )}
+            {agreeTerms && <Ionicons name="checkmark" size={14} color={COLORS.white} />}
           </View>
           <AppText style={styles.termsText}>I agree to the Terms of Service</AppText>
         </TouchableOpacity>
-        {errors.terms ? (
-          <AppText style={styles.errorText}>{errors.terms}</AppText>
-        ) : null}
+        {errors.terms ? <AppText style={styles.errorText}>{errors.terms}</AppText> : null}
 
-        <Button
-          title="Register"
-          onPress={handleRegister}
-          loading={loading}
-          style={styles.registerBtn}
-        />
+        <Button title="Register" onPress={handleRegister} loading={loading} style={styles.registerBtn} />
 
         <View style={styles.loginRow}>
           <AppText style={styles.loginText}>Do you have an account? </AppText>
@@ -136,90 +94,22 @@ const RegisterScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: COLORS.white,
-  },
-  scroll: {
-    paddingHorizontal: SPACING.lg,
-    paddingBottom: SPACING.xl,
-  },
-  backBtn: {
-    marginTop: SPACING.md,
-    marginBottom: SPACING.lg,
-    width: 36,
-  },
-  title: {
-    fontSize: FONTS.sizes.xxxl,
-    fontWeight: '800',
-    color: COLORS.primaryLight,
-    textAlign: 'center',
-    marginBottom: SPACING.sm,
-  },
-  subtitle: {
-    fontSize: FONTS.sizes.md,
-    color: COLORS.textMedium,
-    textAlign: 'center',
-    marginBottom: SPACING.xl,
-    lineHeight: 22,
-  },
-  termsRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: SPACING.sm,
-    marginTop: SPACING.xs,
-    marginBottom: SPACING.sm,
-  },
-  checkbox: {
-    width: 22,
-    height: 22,
-    borderWidth: 1.5,
-    borderColor: COLORS.checkboxBorder,
-    borderRadius: 4,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  checkedBox: {
-    backgroundColor: COLORS.primaryLight,
-    borderColor: COLORS.primaryLight,
-  },
-  termsText: {
-    fontSize: FONTS.sizes.md,
-    color: COLORS.textDark,
-  },
-  errorText: {
-    fontSize: FONTS.sizes.sm,
-    color: COLORS.error,
-    marginBottom: SPACING.sm,
-  },
-  registerBtn: {
-    marginTop: SPACING.lg,
-  },
-  loginRow: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginTop: SPACING.md,
-    marginBottom: SPACING.sm,
-  },
-  loginText: {
-    fontSize: FONTS.sizes.md,
-    color: COLORS.textDark,
-  },
-  loginLink: {
-    fontSize: FONTS.sizes.md,
-    color: COLORS.primaryLight,
-    fontWeight: '700',
-  },
-  orText: {
-    textAlign: 'center',
-    fontSize: FONTS.sizes.md,
-    color: COLORS.textMedium,
-    marginVertical: SPACING.md,
-  },
-  googleIcon: {
-    width: 20,
-    height: 20,
-  },
+  container: { flex: 1, backgroundColor: COLORS.white },
+  scroll: { paddingHorizontal: SPACING.lg, paddingBottom: SPACING.xl },
+  backBtn: { marginTop: SPACING.md, marginBottom: SPACING.lg, width: 36 },
+  title: { fontSize: FONTS.sizes.xxxl, fontWeight: '800', color: COLORS.primaryLight, textAlign: 'center', marginBottom: SPACING.sm },
+  subtitle: { fontSize: FONTS.sizes.md, color: COLORS.textMedium, textAlign: 'center', marginBottom: SPACING.xl, lineHeight: 22 },
+  termsRow: { flexDirection: 'row', alignItems: 'center', gap: SPACING.sm, marginTop: SPACING.xs, marginBottom: SPACING.sm },
+  checkbox: { width: 22, height: 22, borderWidth: 1.5, borderColor: COLORS.checkboxBorder, borderRadius: 4, alignItems: 'center', justifyContent: 'center' },
+  checkedBox: { backgroundColor: COLORS.primaryLight, borderColor: COLORS.primaryLight },
+  termsText: { fontSize: FONTS.sizes.md, color: COLORS.textDark },
+  errorText: { fontSize: FONTS.sizes.sm, color: COLORS.error, marginBottom: SPACING.sm },
+  registerBtn: { marginTop: SPACING.lg },
+  loginRow: { flexDirection: 'row', justifyContent: 'center', marginTop: SPACING.md, marginBottom: SPACING.sm },
+  loginText: { fontSize: FONTS.sizes.md, color: COLORS.textDark },
+  loginLink: { fontSize: FONTS.sizes.md, color: COLORS.primaryLight, fontWeight: '700' },
+  orText: { textAlign: 'center', fontSize: FONTS.sizes.md, color: COLORS.textMedium, marginVertical: SPACING.md },
+  googleIcon: { width: 20, height: 20 },
 });
 
 export default RegisterScreen;

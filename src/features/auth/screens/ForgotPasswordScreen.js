@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import AppText from '../../../components/AppText';
-import {
-  View,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import InputField from '../../../components/ui/InputField';
@@ -38,67 +34,28 @@ const ForgotPasswordScreen = ({ navigation }) => {
         <InputField
           placeholder="Email Address"
           value={email}
-          onChangeText={(v) => {
-            setEmail(v);
-            if (error) setError('');
-          }}
+          onChangeText={(v) => { setEmail(v); if (error) setError(''); }}
           keyboardType="email-address"
           autoCapitalize="none"
           error={error}
           style={styles.input}
         />
 
-        <Button
-          title="Send Reset Link"
-          onPress={handleSend}
-          loading={loading}
-          style={styles.btn}
-        />
-
-        <Button
-          title="Back To Log In"
-          variant="outline"
-          onPress={() => navigation.navigate('Login')}
-          style={styles.backToLoginBtn}
-          textStyle={{ color: COLORS.textDark }}
-        />
+        <Button title="Send Reset Link" onPress={handleSend} loading={loading} style={styles.btn} />
+        <Button title="Back To Log In" variant="outline" onPress={() => navigation.navigate('Login')} style={styles.backToLoginBtn} textStyle={{ color: COLORS.textDark }} />
       </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: COLORS.white,
-    paddingHorizontal: SPACING.lg,
-  },
-  backBtn: {
-    marginTop: SPACING.md,
-    marginBottom: SPACING.xl,
-    width: 36,
-  },
-  content: {
-    flex: 1,
-  },
-  title: {
-    fontSize: FONTS.sizes.xxxl,
-    fontWeight: '800',
-    color: COLORS.primaryLight,
-    marginBottom: SPACING.md,
-  },
-  subtitle: {
-    fontSize: FONTS.sizes.md,
-    color: COLORS.textMedium,
-    lineHeight: 22,
-    marginBottom: SPACING.xl,
-  },
-  input: {
-    marginBottom: SPACING.xl,
-  },
-  btn: {
-    marginBottom: SPACING.md,
-  },
+  container: { flex: 1, backgroundColor: COLORS.white, paddingHorizontal: SPACING.lg },
+  backBtn: { marginTop: SPACING.md, marginBottom: SPACING.xl, width: 36 },
+  content: { flex: 1 },
+  title: { fontSize: FONTS.sizes.xxxl, fontWeight: '800', color: COLORS.primaryLight, marginBottom: SPACING.md },
+  subtitle: { fontSize: FONTS.sizes.md, color: COLORS.textMedium, lineHeight: 22, marginBottom: SPACING.xl },
+  input: { marginBottom: SPACING.xl },
+  btn: { marginBottom: SPACING.md },
   backToLoginBtn: {},
 });
 
