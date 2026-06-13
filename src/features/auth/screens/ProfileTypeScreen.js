@@ -41,9 +41,9 @@ const ProfileTypeScreen = ({ navigation }) => {
             style={styles.card}
             imageStyle={styles.cardImage}
           >
-            <Text style={styles.cardTitle}>{item.title}</Text>
+            <AppText style={styles.cardTitle}>{item.title}</AppText>
             <TouchableOpacity style={styles.selectBtn} onPress={() => navigation.navigate(item.route)}>
-              <Text style={styles.selectText}>Select</Text>
+              <AppText style={styles.selectText}>Select</AppText>
             </TouchableOpacity>
           </ImageBackground>
           </View>

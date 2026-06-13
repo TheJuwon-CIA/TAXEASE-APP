@@ -26,7 +26,7 @@ const ResourceIcon = ({ type, active }) => {
     <View style={styles.iconBox}>
       {type === 'book' ? <Ionicons name="bookmark-outline" size={66} color={color} /> : null}
       {type === 'map' ? <Ionicons name="map-outline" size={66} color={color} /> : null}
-      {type === 'faq' ? <Text style={[styles.questionIcon, { color }]}>?</Text> : null}
+      {type === 'faq' ? <AppText style={[styles.questionIcon, { color }]}>?</AppText> : null}
       {type === 'video' ? <Ionicons name="videocam-outline" size={70} color={color} /> : null}
     </View>
   );
@@ -35,10 +35,10 @@ const ResourceIcon = ({ type, active }) => {
 const ResourceCard = ({ title, body, type, active, onPress }) => (
   <TouchableOpacity style={[styles.resourceCard, active && styles.resourceCardActive]} onPress={onPress}>
     <ResourceIcon type={type} active={active} />
-    <Text style={[styles.resourceText, active && styles.resourceTextActive]}>
-      <Text style={styles.resourceStrong}>{title}</Text>
+    <AppText style={[styles.resourceText, active && styles.resourceTextActive]}>
+      <AppText style={styles.resourceStrong}>{title}</AppText>
       {body}
-    </Text>
+    </AppText>
   </TouchableOpacity>
 );
 

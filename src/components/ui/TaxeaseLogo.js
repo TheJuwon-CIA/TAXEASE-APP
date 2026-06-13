@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
-import AppText from '../../../components/AppText';
+import AppText from './AppText';
 import { COLORS } from '../../theme/tokens';
 import { appImages } from '../../lib/assets';
 

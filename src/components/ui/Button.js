@@ -5,7 +5,7 @@ import {
   ActivityIndicator,
   View,
 } from 'react-native';
-import AppText from '../../../components/AppText';
+import AppText from '../AppText';
 import { COLORS, RADIUS, FONTS, SPACING } from '../../theme/tokens';
 
 const Button = ({

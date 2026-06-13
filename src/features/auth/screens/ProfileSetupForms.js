@@ -88,29 +88,29 @@ export const EmployeeProfileForm = ({ navigation }) => {
 
       <SectionTitle>Salary Information:</SectionTitle>
       <View style={styles.inlineLine}>
-        <Text style={styles.inlineLabel}>Monthly Salary:</Text>
+        <AppText style={styles.inlineLabel}>Monthly Salary:</AppText>
         <Field compact />
       </View>
       <View style={styles.inlineLine}>
-        <Text style={styles.inlineLabel}>Salary Frequency:</Text>
+        <AppText style={styles.inlineLabel}>Salary Frequency:</AppText>
         <Field compact />
       </View>
 
       <SectionTitle>Tax & Deductions:</SectionTitle>
       <View style={styles.inlineLine}>
-        <Text style={styles.inlineLabel}>TIN:</Text>
+        <AppText style={styles.inlineLabel}>TIN:</AppText>
         <Field compact />
       </View>
 
       <SectionTitle>Others:</SectionTitle>
-      <View style={styles.inlineLine}><Text style={styles.inlineLabel}>Pension:</Text><Field compact /></View>
-      <View style={styles.inlineLine}><Text style={styles.inlineLabel}>NHF Deductions:</Text><Field compact /></View>
-      <View style={styles.inlineLine}><Text style={styles.inlineLabel}>NHIS Deductions:</Text><Field compact /></View>
-      <View style={styles.inlineLine}><Text style={styles.inlineLabel}>Registered with FIRS:</Text><Field compact /></View>
+      <View style={styles.inlineLine}><AppText style={styles.inlineLabel}>Pension:</AppText><Field compact /></View>
+      <View style={styles.inlineLine}><AppText style={styles.inlineLabel}>NHF Deductions:</AppText><Field compact /></View>
+      <View style={styles.inlineLine}><AppText style={styles.inlineLabel}>NHIS Deductions:</AppText><Field compact /></View>
+      <View style={styles.inlineLine}><AppText style={styles.inlineLabel}>Registered with FIRS:</AppText><Field compact /></View>
 
       <SectionTitle>Notification Preferences:</SectionTitle>
-      <View style={styles.inlineLine}><Text style={styles.inlineLabel}>Salary tax reminders:</Text><Field compact /></View>
-      <View style={styles.inlineLine}><Text style={styles.inlineLabel}>Monthly reports:</Text><Field compact /></View>
+      <View style={styles.inlineLine}><AppText style={styles.inlineLabel}>Salary tax reminders:</AppText><Field compact /></View>
+      <View style={styles.inlineLine}><AppText style={styles.inlineLabel}>Monthly reports:</AppText><Field compact /></View>
     </SetupShell>
   );
 };
@@ -140,13 +140,13 @@ export const BusinessProfileForm = ({ navigation }) => {
 
       <SectionTitle>Tax Information:</SectionTitle>
       <View style={styles.inlineLine}>
-        <Text style={styles.inlineLabel}>TIN:</Text>
+        <AppText style={styles.inlineLabel}>TIN:</AppText>
         <Field compact />
       </View>
 
       <SectionTitle>Notification Preferences:</SectionTitle>
-      <View style={styles.inlineLine}><Text style={styles.inlineLabel}>Salary tax reminders:</Text><Field compact /></View>
-      <View style={styles.inlineLine}><Text style={styles.inlineLabel}>Monthly reports:</Text><Field compact /></View>
+      <View style={styles.inlineLine}><AppText style={styles.inlineLabel}>Salary tax reminders:</AppText><Field compact /></View>
+      <View style={styles.inlineLine}><AppText style={styles.inlineLabel}>Monthly reports:</AppText><Field compact /></View>
     </SetupShell>
   );
 };

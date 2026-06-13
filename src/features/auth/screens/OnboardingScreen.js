@@ -84,7 +84,7 @@ const OnboardingScreen = ({ navigation }) => {
         <View style={styles.topRow}>
           <TaxeaseLogo size={28} showText={false} />
           <TouchableOpacity onPress={skip}>
-            <Text style={styles.skip}>Skip</Text>
+            <AppText style={styles.skip}>Skip</AppText>
           </TouchableOpacity>
         </View>
 
@@ -98,7 +98,7 @@ const OnboardingScreen = ({ navigation }) => {
 
         <View style={styles.copy}>
           {splitTitle(current.title, current.highlight)}
-          <Text style={styles.subtitle}>{current.subtitle}</Text>
+          <AppText style={styles.subtitle}>{current.subtitle}</AppText>
         </View>
       </View>
 

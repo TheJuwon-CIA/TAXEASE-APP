@@ -5,7 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import AppText from '../../../components/AppText';
+import AppText from '../AppText';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS, RADIUS, FONTS, SPACING } from '../../theme/tokens';
 

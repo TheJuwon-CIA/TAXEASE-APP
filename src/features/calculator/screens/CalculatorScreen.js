@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import AppText from '../../../components/AppText';
 import { View, StyleSheet, TouchableOpacity, ScrollView, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS, FONTS, SPACING, RADIUS } from '../../../theme/tokens';
