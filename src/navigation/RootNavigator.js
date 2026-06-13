@@ -27,17 +27,6 @@ import {
 } from '../features/auth/screens/ProfileSetupForms';
 import NotificationsScreen from '../features/notifications/screens/NotificationsScreen';
 import {
-  PaymentPortalScreen,
-  FlutterwavePaymentScreen,
-  SelectPaymentMethodScreen,
-  SelectPreferredAccountScreen,
-  MakeTransferScreen,
-  LoadingPaymentScreen,
-  PaymentSuccessScreen,
-  PaymentFailedScreen,
-  ReceiptDetailScreen,
-} from '../features/payments/screens/PaymentScreens';
-import {
   EducationalResourcesScreen,
   TaxBasicsScreen,
   DeductionGuideScreen,
@@ -80,6 +69,7 @@ const RootNavigator = () => {
         <>
           <Stack.Screen name="MainTabs" component={MainTabNavigator} />
           <Stack.Screen name="Notifications" component={NotificationsScreen} />
+          <Stack.Screen name="LoginScreen" component={LoginScreen} />
           <Stack.Screen name="IndividualDeductions" component={IndividualDeductionsScreen} />
           <Stack.Screen name="SMEIncome" component={SMEIncomeScreen} />
           <Stack.Screen name="SMEDeductions" component={SMEDeductionsScreen} />
@@ -88,15 +78,6 @@ const RootNavigator = () => {
           <Stack.Screen name="SMETaxBand" component={SMETaxBandScreen} />
           <Stack.Screen name="PAYEResult" component={PAYEResultScreen} />
           <Stack.Screen name="SavedSuccess" component={SavedSuccessScreen} />
-          <Stack.Screen name="PaymentPortal" component={PaymentPortalScreen} />
-          <Stack.Screen name="FlutterwavePayment" component={FlutterwavePaymentScreen} />
-          <Stack.Screen name="SelectPaymentMethod" component={SelectPaymentMethodScreen} />
-          <Stack.Screen name="SelectPreferredAccount" component={SelectPreferredAccountScreen} />
-          <Stack.Screen name="MakeTransfer" component={MakeTransferScreen} />
-          <Stack.Screen name="LoadingPayment" component={LoadingPaymentScreen} />
-          <Stack.Screen name="PaymentSuccess" component={PaymentSuccessScreen} />
-          <Stack.Screen name="PaymentFailed" component={PaymentFailedScreen} />
-          <Stack.Screen name="ReceiptDetail" component={ReceiptDetailScreen} />
           <Stack.Screen name="EducationalResources" component={EducationalResourcesScreen} />
           <Stack.Screen name="TaxBasics" component={TaxBasicsScreen} />
           <Stack.Screen name="DeductionGuide" component={DeductionGuideScreen} />

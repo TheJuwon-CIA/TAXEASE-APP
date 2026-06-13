@@ -1,7 +1,7 @@
 import React from 'react';
+import AppText from '../../../components/AppText';
 import {
   View,
-  Text,
   StyleSheet,
   TouchableOpacity,
   Image,
@@ -16,7 +16,7 @@ const AccountSuccessScreen = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <View style={styles.center}>
         <Image source={appImages.success} style={styles.successImage} resizeMode="contain" />
-        <Text style={styles.title}>Account creation{'\n'}successful!</Text>
+        <AppText style={styles.title}>Account creation{'\n'}successful!</AppText>
       </View>
 
       <View style={styles.bottomRow}>
@@ -24,7 +24,7 @@ const AccountSuccessScreen = ({ navigation }) => {
           style={styles.nextBtn}
           onPress={() => navigation.navigate('ProfileType')}
         >
-          <Text style={styles.nextText}>Next</Text>
+          <AppText style={styles.nextText}>Next</AppText>
           <Ionicons name="chevron-forward" size={20} color={COLORS.white} />
         </TouchableOpacity>
       </View>
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: SPACING.xl,
     paddingVertical: SPACING.md,
     borderRadius: RADIUS.xl,
-    gap: SPACING.sm,
+    gap: SPACING.md,
   },
   nextText: {
     fontSize: FONTS.sizes.lg,

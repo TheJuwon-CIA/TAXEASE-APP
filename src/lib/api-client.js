@@ -1,7 +1,7 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const BASE_URL = 'https://api.taxease.com/v1'; // Replace with real API URL
+const BASE_URL = 'https://api.taxease.com/v1';
 
 const api = axios.create({
   baseURL: BASE_URL,
@@ -11,7 +11,6 @@ const api = axios.create({
   },
 });
 
-// Request interceptor — attach auth token
 api.interceptors.request.use(
   async (config) => {
     const token = await AsyncStorage.getItem('authToken');
@@ -20,10 +19,9 @@ api.interceptors.request.use(
     }
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => Promise.reject(error),
 );
 
-// Response interceptor — handle 401
 api.interceptors.response.use(
   (response) => response.data,
   async (error) => {
@@ -31,10 +29,8 @@ api.interceptors.response.use(
       await AsyncStorage.removeItem('authToken');
     }
     return Promise.reject(error.response?.data || error.message);
-  }
+  },
 );
-
-// ─── Auth Endpoints ───────────────────────────────────────────────────────────
 
 export const authAPI = {
   login: (email, password) =>
@@ -65,20 +61,14 @@ export const authAPI = {
     api.post('/auth/user-type', { userId, userType }),
 };
 
-// ─── User Endpoints ───────────────────────────────────────────────────────────
-
 export const userAPI = {
   getProfile: () => api.get('/user/profile'),
   updateProfile: (data) => api.put('/user/profile', data),
 };
 
-// ─── Tax Endpoints ────────────────────────────────────────────────────────────
-
 export const taxAPI = {
   calculate: (data) => api.post('/tax/calculate', data),
   getHistory: () => api.get('/tax/history'),
-  getReceipts: () => api.get('/tax/receipts'),
-  downloadReceipt: (id) => api.get(`/tax/receipts/${id}/download`),
 };
 
 export default api;

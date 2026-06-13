@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import AppText from '../../../components/AppText';
 import {
   View,
-  Text,
   StyleSheet,
   TouchableOpacity,
   ScrollView,
@@ -34,7 +34,7 @@ const LoginScreen = ({ navigation }) => {
         firstName: 'Demo',
         lastName: 'User',
       },
-      'demo-token'
+      'demo-token',
     );
     setLoading(false);
   };
@@ -50,7 +50,6 @@ const LoginScreen = ({ navigation }) => {
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
       >
-        {/* Back button */}
         <TouchableOpacity
           style={styles.backBtn}
           onPress={() => navigation.goBack()}
@@ -58,11 +57,9 @@ const LoginScreen = ({ navigation }) => {
           <Ionicons name="chevron-back" size={26} color={COLORS.textDark} />
         </TouchableOpacity>
 
-        {/* Header */}
-        <Text style={styles.title}>Log In</Text>
-        <Text style={styles.subtitle}>Welcome Back To Taxease</Text>
+        <AppText style={styles.title}>Log In</AppText>
+        <AppText style={styles.subtitle}>Welcome Back To Taxease</AppText>
 
-        {/* Form */}
         <View style={styles.form}>
           <InputField
             label="Email"
@@ -79,7 +76,7 @@ const LoginScreen = ({ navigation }) => {
 
           <InputField
             label="Password"
-            placeholder="••••••••••"
+            placeholder="**********"
             value={password}
             onChangeText={setPassword}
             secureTextEntry
@@ -89,7 +86,6 @@ const LoginScreen = ({ navigation }) => {
             error={errors.password}
           />
 
-          {/* Remember Me + Forgot Password */}
           <View style={styles.rememberRow}>
             <TouchableOpacity
               style={styles.checkRow}
@@ -100,18 +96,17 @@ const LoginScreen = ({ navigation }) => {
                   <Ionicons name="checkmark" size={14} color={COLORS.white} />
                 )}
               </View>
-              <Text style={styles.rememberText}>Remember Me</Text>
+              <AppText style={styles.rememberText}>Remember Me</AppText>
             </TouchableOpacity>
 
             <TouchableOpacity
               onPress={() => navigation.navigate('ForgotPassword')}
             >
-              <Text style={styles.forgotText}>Forgot Password?</Text>
+              <AppText style={styles.forgotText}>Forgot Password?</AppText>
             </TouchableOpacity>
           </View>
         </View>
 
-        {/* Login button */}
         <Button
           title="Login"
           onPress={handleLogin}
@@ -119,18 +114,15 @@ const LoginScreen = ({ navigation }) => {
           style={styles.loginBtn}
         />
 
-        {/* Sign up */}
         <View style={styles.signupRow}>
-          <Text style={styles.signupText}>Dont have an account? </Text>
+          <AppText style={styles.signupText}>Dont have an account? </AppText>
           <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-            <Text style={styles.signupLink}>Sign Up</Text>
+            <AppText style={styles.signupLink}>Sign Up</AppText>
           </TouchableOpacity>
         </View>
 
-        {/* OR divider */}
-        <Text style={styles.orText}>OR</Text>
+        <AppText style={styles.orText}>OR</AppText>
 
-        {/* Google login */}
         <Button
           title="Login Using Google"
           variant="outline"
@@ -231,6 +223,10 @@ const styles = StyleSheet.create({
   googleText: {
     color: COLORS.textDark,
     fontWeight: '600',
+  },
+  googleIcon: {
+    width: 20,
+    height: 20,
   },
 });
 

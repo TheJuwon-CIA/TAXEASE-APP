@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import AppText from '../../../components/AppText';
 import {
   View,
-  Text,
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
@@ -33,11 +33,11 @@ const ConfirmEmailScreen = ({ navigation, route }) => {
       </TouchableOpacity>
 
       <View style={styles.content}>
-        <Text style={styles.title}>Confirm Email</Text>
-        <Text style={styles.subtitle}>
+        <AppText style={styles.title}>Confirm Email</AppText>
+        <AppText style={styles.subtitle}>
           An email with a confirmation code has been sent to your email address{' '}
-          <Text style={styles.emailHighlight}>{email}</Text>. Enter the code to proceed
-        </Text>
+          <AppText style={styles.emailHighlight}>{email}</AppText>. Enter the code to proceed
+        </AppText>
 
         <View style={styles.otpWrap}>
           <OTPInput length={4} onComplete={setOtp} />
@@ -51,9 +51,9 @@ const ConfirmEmailScreen = ({ navigation, route }) => {
         />
 
         <View style={styles.resendRow}>
-          <Text style={styles.resendText}>Didn't receive a code? </Text>
+          <AppText style={styles.resendText}>Didn't receive a code? </AppText>
           <TouchableOpacity onPress={handleResend}>
-            <Text style={styles.resendLink}>Resend Code</Text>
+            <AppText style={styles.resendLink}>Resend Code</AppText>
           </TouchableOpacity>
         </View>
       </View>

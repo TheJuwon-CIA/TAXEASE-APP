@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import {
   View,
   TextInput,
-  Text,
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
+import AppText from '../../../components/AppText';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS, RADIUS, FONTS, SPACING } from '../../theme/tokens';
 
@@ -30,7 +30,7 @@ const InputField = ({
 
   return (
     <View style={[styles.container, style]}>
-      {label ? <Text style={styles.label}>{label}</Text> : null}
+      {label ? <AppText style={styles.label}>{label}</AppText> : null}
       <View
         style={[
           styles.inputWrapper,
@@ -67,7 +67,7 @@ const InputField = ({
           </TouchableOpacity>
         )}
       </View>
-      {error ? <Text style={styles.errorText}>{error}</Text> : null}
+      {error ? <AppText style={styles.errorText}>{error}</AppText> : null}
     </View>
   );
 };

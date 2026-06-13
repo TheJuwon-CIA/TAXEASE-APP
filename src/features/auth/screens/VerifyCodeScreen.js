@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import AppText from '../../../components/AppText';
 import {
   View,
-  Text,
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
@@ -40,11 +40,11 @@ const VerifyCodeScreen = ({ navigation, route }) => {
           <Ionicons name="mail-open-outline" size={44} color={COLORS.primaryLight} />
         </View>
 
-        <Text style={styles.title}>Check Your Email</Text>
-        <Text style={styles.subtitle}>
+        <AppText style={styles.title}>Check Your Email</AppText>
+        <AppText style={styles.subtitle}>
           We've sent a 6-digit verification code to your email address
           (e.g. {maskedEmail}). Please enter it below.
-        </Text>
+        </AppText>
 
         <View style={styles.otpWrap}>
           <OTPInput length={6} onComplete={setOtp} />
@@ -58,9 +58,9 @@ const VerifyCodeScreen = ({ navigation, route }) => {
         />
 
         <View style={styles.resendRow}>
-          <Text style={styles.resendText}>Didn't receive any code? </Text>
+          <AppText style={styles.resendText}>Didn't receive any code? </AppText>
           <TouchableOpacity onPress={handleResend}>
-            <Text style={styles.resendLink}>Resend</Text>
+            <AppText style={styles.resendLink}>Resend</AppText>
           </TouchableOpacity>
         </View>
       </View>

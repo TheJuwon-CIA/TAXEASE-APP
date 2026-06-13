@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
+import AppText from '../../../components/AppText';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS, FONTS, SPACING, RADIUS } from '../../../theme/tokens';
@@ -64,7 +64,7 @@ const SelectTypeScreen = ({ navigation }) => {
         <Ionicons name="chevron-back" size={26} color={COLORS.textDark} />
       </TouchableOpacity>
 
-      <Text style={styles.title}>Tell Us About You</Text>
+      <AppText style={styles.title}>Tell Us About You</AppText>
 
       <ScrollView showsVerticalScrollIndicator={false}>
         {USER_TYPES.map((type) => (
@@ -80,11 +80,11 @@ const SelectTypeScreen = ({ navigation }) => {
                 <Ionicons name="person" size={22} color={COLORS.white} />
               </View>
               <View style={styles.labelBg}>
-                <Text style={styles.typeLabel}>{type.label}</Text>
+                <AppText style={styles.typeLabel}>{type.label}</AppText>
               </View>
             </View>
             {/* Description */}
-            <Text style={styles.typeDescription}>{type.description}</Text>
+            <AppText style={styles.typeDescription}>{type.description}</AppText>
           </TouchableOpacity>
         ))}
       </ScrollView>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, ImageBackground } from 'react-native';
+import AppText from '../../../components/AppText';
+import { View, StyleSheet, TouchableOpacity, ScrollView, ImageBackground } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS, FONTS, SPACING, RADIUS, SHADOWS } from '../../../theme/tokens';
@@ -13,8 +14,8 @@ const IndividualProfileTypeScreen = ({ navigation }) => {
           <Ionicons name="arrow-back-circle-outline" size={40} color={COLORS.black} />
         </TouchableOpacity>
 
-        <Text style={styles.title}>Individual Profile</Text>
-        <Text style={styles.subtitle}>What best describes you ?</Text>
+        <AppText style={styles.title}>Individual Profile</AppText>
+        <AppText style={styles.subtitle}>What best describes you ?</AppText>
 
         <ProfileCard
           title="Freelancer"
@@ -38,11 +39,11 @@ const IndividualProfileTypeScreen = ({ navigation }) => {
 const ProfileCard = ({ title, description, image, muted, onPress }) => (
   <ImageBackground source={image} style={[styles.card, muted && styles.mutedCard]} imageStyle={styles.cardImage}>
     <View style={[styles.cardFade, muted && styles.mutedFade]} />
-    <Text style={styles.cardTitle}>{title}</Text>
+    <AppText style={styles.cardTitle}>{title}</AppText>
     <View style={styles.cardBottom}>
-      <Text style={styles.cardDescription}>{description}</Text>
+      <AppText style={styles.cardDescription}>{description}</AppText>
       <TouchableOpacity style={styles.selectBtn} onPress={onPress}>
-        <Text style={styles.selectText}>Select</Text>
+        <AppText style={styles.selectText}>Select</AppText>
       </TouchableOpacity>
     </View>
   </ImageBackground>

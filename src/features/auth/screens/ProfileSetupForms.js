@@ -1,42 +1,45 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput } from 'react-native';
+import AppText from '../../../components/AppText';
+import { View, StyleSheet, TouchableOpacity, ScrollView, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
-import { COLORS, FONTS, SPACING, RADIUS } from '../../../theme/tokens';
+import { COLORS, FONTS, SPACING, RADIUS, SHADOWS } from '../../../theme/tokens';
 import { useAuth } from '../../../providers/AuthProvider';
 
 const demoUser = (type) => ({
   id: 'demo-user',
-  firstName: 'John',
-  lastName: 'Doe',
+  firstName: type === 'business' ? 'Doe' : 'John',
+  lastName: type === 'business' ? 'Enterprises' : 'Doe',
   email: 'Johndoe@gmail.com',
   userType: type,
 });
 
 const Field = ({ label, placeholder, compact }) => (
   <View style={[styles.field, compact && styles.compactField]}>
-    <Text style={styles.label}>{label}</Text>
+    <AppText style={styles.label}>{label}</AppText>
     <TextInput
       placeholder={placeholder}
-      placeholderTextColor="#6F7784"
-      style={styles.input}
+      placeholderTextColor="#9CA3AF"
+      style={[styles.input, compact && styles.compactInput]}
     />
   </View>
 );
 
-const SectionTitle = ({ children }) => <Text style={styles.sectionTitle}>{children}</Text>;
+const SectionTitle = ({ children }) => <AppText style={styles.sectionTitle}>{children}</AppText>;
 
 const SetupShell = ({ title, subtitle, children, onSave, navigation }) => (
   <SafeAreaView style={styles.container}>
     <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
-      <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
-        <Ionicons name="arrow-back-circle-outline" size={40} color={COLORS.black} />
-      </TouchableOpacity>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.subtitle}>{subtitle}</Text>
+      <View style={styles.header}>
+        <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
+          <Ionicons name="chevron-back" size={30} color={COLORS.black} />
+        </TouchableOpacity>
+        <AppText style={styles.title}>{title}</AppText>
+      </View>
+      <AppText style={styles.subtitle}>{subtitle}</AppText>
       {children}
       <TouchableOpacity style={styles.saveBtn} onPress={onSave}>
-        <Text style={styles.saveText}>Save And Continue</Text>
+        <AppText style={styles.saveText}>Save and continue</AppText>
       </TouchableOpacity>
     </ScrollView>
   </SafeAreaView>
@@ -44,68 +47,70 @@ const SetupShell = ({ title, subtitle, children, onSave, navigation }) => (
 
 export const FreelancerProfileForm = ({ navigation }) => {
   const { login } = useAuth();
-  const save = () => login(demoUser('freelancer'), 'demo-token');
+  const save = () => login(demoUser('individual'), 'demo-token');
 
   return (
-    <SetupShell title="Freelancer Profile" subtitle="Set your freelancer Account" onSave={save} navigation={navigation}>
-      <SectionTitle>Personal Information :</SectionTitle>
-      <View style={styles.group}>
-        <Field label="Full Name:" placeholder="INPUT YOUR NAME" />
-        <Field label="Email Adress:" placeholder="INPUT YOUR EMAIL" />
-        <Field label="Phone Number:" placeholder="INPUT YOUR PHONE NUMBER" />
-      </View>
+    <SetupShell title="Freelancer Profile" subtitle="Set your freelancer account" onSave={save} navigation={navigation}>
+      <SectionTitle>Personal Information:</SectionTitle>
+      <Field label="Full Name" placeholder="Input your name" />
+      <Field label="Email Address" placeholder="Input your email" />
+      <Field label="Phone Number" placeholder="Input your phone number" />
 
-      <View style={styles.outlined}>
-        <SectionTitle>Freelancer Information :</SectionTitle>
-        <Field label="Profession:" />
-        <Field label="Monthly Income:" />
-        <Field label="Years Of Experience:" />
-      </View>
+      <SectionTitle>Freelancer Information:</SectionTitle>
+      <Field label="Profession" />
+      <Field label="Monthly Income" />
+      <Field label="Years Of Experience" />
 
-      <SectionTitle>Tax Information :</SectionTitle>
+      <SectionTitle>Tax Information:</SectionTitle>
       <Field label="TIN:" />
-      <Field label="Estimated Annual Income:" />
+      <Field label="Estimated Annual Income" />
     </SetupShell>
   );
 };
 
 export const EmployeeProfileForm = ({ navigation }) => {
   const { login } = useAuth();
-  const save = () => login(demoUser('employee'), 'demo-token');
+  const save = () => login(demoUser('individual'), 'demo-token');
 
   return (
-    <SetupShell title="Employee Profile" subtitle="Set your employee account :" onSave={save} navigation={navigation}>
-      <SectionTitle>Personal Information :</SectionTitle>
-      <Field label="Full Name:" placeholder="INPUT YOUR NAME" />
-      <Field label="Email Adress:" placeholder="INPUT YOUR EMAIL" />
-      <Field label="Phone Number:" placeholder="INPUT YOUR PHONE NUMBER" />
-      <Field label="Residential Address:" placeholder="INPUT YOUR ADDRESS" />
+    <SetupShell title="Employee Profile" subtitle="Set your employee account" onSave={save} navigation={navigation}>
+      <SectionTitle>Personal Information:</SectionTitle>
+      <Field label="Full Name" placeholder="Input your name" />
+      <Field label="Email Address" placeholder="Input your email" />
+      <Field label="Phone Number" placeholder="Input your phone number" />
+      <Field label="Residential Address" placeholder="Input your residential address" />
 
-      <SectionTitle>Employment Information :</SectionTitle>
-      <Field label="Company Name:" placeholder="E.g, john enterprises" />
-      <Field label="Job Title:" placeholder="E.g, Full Time" />
-      <Field label="Employment Type:" placeholder="E.g, Full Time" />
-      <Field label="Years Of Experience :" placeholder="E.g, Full Time" />
+      <SectionTitle>Employment Information:</SectionTitle>
+      <Field label="Company Name" placeholder="E.g. John Enterprise" />
+      <Field label="Job Title" placeholder="E.g. Manager" />
+      <Field label="Employment Type" placeholder="E.g. Full Time" />
+      <Field label="Years Of Experience" placeholder="E.g. 2 years" />
 
-      <SectionTitle>Salary Information :</SectionTitle>
-      <View style={styles.inlineRow}>
-        <Field label="Monthly Salary:" compact />
-        <Field label="Payment Frequency:" compact />
+      <SectionTitle>Salary Information:</SectionTitle>
+      <View style={styles.inlineLine}>
+        <Text style={styles.inlineLabel}>Monthly Salary:</Text>
+        <Field compact />
+      </View>
+      <View style={styles.inlineLine}>
+        <Text style={styles.inlineLabel}>Salary Frequency:</Text>
+        <Field compact />
       </View>
 
-      <SectionTitle>Tax & Deductions :</SectionTitle>
-      <Field label="TIN:" />
+      <SectionTitle>Tax & Deductions:</SectionTitle>
+      <View style={styles.inlineLine}>
+        <Text style={styles.inlineLabel}>TIN:</Text>
+        <Field compact />
+      </View>
+
       <SectionTitle>Others:</SectionTitle>
-      <Field label="Pension:" />
-      <Field label="NHF Deduction:" />
-      <Field label="NHIS Deduction:" />
-      <Field label="Registered With FIRS:" />
+      <View style={styles.inlineLine}><Text style={styles.inlineLabel}>Pension:</Text><Field compact /></View>
+      <View style={styles.inlineLine}><Text style={styles.inlineLabel}>NHF Deductions:</Text><Field compact /></View>
+      <View style={styles.inlineLine}><Text style={styles.inlineLabel}>NHIS Deductions:</Text><Field compact /></View>
+      <View style={styles.inlineLine}><Text style={styles.inlineLabel}>Registered with FIRS:</Text><Field compact /></View>
 
-      <SectionTitle>Notification preferences :</SectionTitle>
-      <View style={styles.inlineRow}>
-        <Field label="Salary Tax Remainders:" compact />
-        <Field label="Monthly Reports:" compact />
-      </View>
+      <SectionTitle>Notification Preferences:</SectionTitle>
+      <View style={styles.inlineLine}><Text style={styles.inlineLabel}>Salary tax reminders:</Text><Field compact /></View>
+      <View style={styles.inlineLine}><Text style={styles.inlineLabel}>Monthly reports:</Text><Field compact /></View>
     </SetupShell>
   );
 };
@@ -115,63 +120,69 @@ export const BusinessProfileForm = ({ navigation }) => {
   const save = () => login(demoUser('business'), 'demo-token');
 
   return (
-    <SetupShell title="Business owner Profile" subtitle="Set your business account :" onSave={save} navigation={navigation}>
-      <SectionTitle>Personal Information :</SectionTitle>
-      <Field label="Full Name:" placeholder="INPUT YOUR NAME" />
-      <Field label="Email Adress:" placeholder="INPUT YOUR EMAIL" />
-      <Field label="Phone Number:" placeholder="INPUT YOUR PHONE NUMBER" />
+    <SetupShell title="Business Owner Profile" subtitle="Set your business account" onSave={save} navigation={navigation}>
+      <SectionTitle>Personal Information:</SectionTitle>
+      <Field label="Full Name" placeholder="Input your name" />
+      <Field label="Email Address" placeholder="Input your email" />
+      <Field label="Phone Number" placeholder="Input your phone number" />
 
-      <SectionTitle>Business Information :</SectionTitle>
-      <Field label="Business Name:" placeholder="E.g, John's Enterprises" />
-      <Field label="Business Type:" placeholder="E.g, Sole Proprietorship" />
-      <Field label="Industry Category:" />
-      <Field label="Business Address:" placeholder="E.g Wuse, Abuja" />
-      <Field label="CAC Registration Number:" placeholder="E.g 1268.." />
+      <SectionTitle>Business Information:</SectionTitle>
+      <Field label="Business Name" placeholder="E.g. John Enterprise" />
+      <Field label="Business Type" placeholder="E.g. Sole Proprietorship" />
+      <Field label="Industry Category" />
+      <Field label="CAC Registration Number" placeholder="E.g. 1268" />
 
-      <SectionTitle>Financial Information :</SectionTitle>
-      <Field label="Estimated Monthly Revenue:" />
-      <Field label="Number Of Employees:" />
-      <Field label="Business Bank Name:" />
-      <Field label="Business Account Number:" />
+      <SectionTitle>Financial Information:</SectionTitle>
+      <Field label="Estimated Monthly Revenue" />
+      <Field label="Number Of Employees" />
+      <Field label="Business Bank Name" />
+      <Field label="Business Account Number" />
 
-      <SectionTitle>Tax Information :</SectionTitle>
-      <Field label="TIN:" />
+      <SectionTitle>Tax Information:</SectionTitle>
+      <View style={styles.inlineLine}>
+        <Text style={styles.inlineLabel}>TIN:</Text>
+        <Field compact />
+      </View>
 
-      <SectionTitle>Notification Preferences :</SectionTitle>
-      <Field label="Tax Reminder:" />
-      <Field label="Monthly Reports:" />
+      <SectionTitle>Notification Preferences:</SectionTitle>
+      <View style={styles.inlineLine}><Text style={styles.inlineLabel}>Salary tax reminders:</Text><Field compact /></View>
+      <View style={styles.inlineLine}><Text style={styles.inlineLabel}>Monthly reports:</Text><Field compact /></View>
     </SetupShell>
   );
 };
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.white },
-  content: { paddingHorizontal: SPACING.lg, paddingTop: SPACING.xl, paddingBottom: SPACING.xxl },
-  backBtn: { width: 44, marginBottom: SPACING.sm },
-  title: { fontSize: FONTS.sizes.xxl, fontWeight: '800', color: COLORS.textDark, marginBottom: SPACING.xs },
-  subtitle: { fontSize: 24, fontWeight: '600', color: '#343D4C', marginBottom: SPACING.lg },
-  sectionTitle: { fontSize: 24, color: '#343D4C', marginTop: SPACING.md, marginBottom: SPACING.sm },
-  group: { marginBottom: SPACING.sm },
-  outlined: { borderWidth: 2, borderColor: '#1597EF', padding: SPACING.xs, marginVertical: SPACING.md },
+  content: { paddingHorizontal: 18, paddingTop: SPACING.lg, paddingBottom: SPACING.xxl },
+  header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', minHeight: 44 },
+  backBtn: { position: 'absolute', left: 0, width: 34, height: 34, justifyContent: 'center' },
+  title: { flex: 1, maxWidth: 260, textAlign: 'center', fontSize: 28, lineHeight: 33, fontWeight: '800', color: COLORS.primary },
+  subtitle: { fontSize: 18, fontWeight: '800', color: COLORS.textDark, marginTop: SPACING.sm, marginBottom: SPACING.lg },
+  sectionTitle: { fontSize: 20, color: '#343D4C', marginTop: SPACING.md, marginBottom: SPACING.sm },
   field: { marginBottom: SPACING.sm },
-  compactField: { flex: 1 },
-  label: { fontSize: FONTS.sizes.lg, color: COLORS.textDark, marginLeft: SPACING.sm, marginBottom: SPACING.xs },
+  compactField: { flex: 1, marginBottom: 0 },
+  label: { fontSize: 12, color: COLORS.textDark, fontWeight: '800', marginBottom: 3 },
   input: {
-    height: 32,
-    borderRadius: RADIUS.sm,
-    backgroundColor: COLORS.gray300,
-    paddingHorizontal: SPACING.md,
-    fontSize: FONTS.sizes.sm,
+    height: 31,
+    borderWidth: 1,
+    borderColor: COLORS.black,
+    borderRadius: 6,
+    backgroundColor: COLORS.white,
+    paddingHorizontal: 8,
+    fontSize: 12,
     color: COLORS.textDark,
   },
-  inlineRow: { flexDirection: 'row', gap: SPACING.md, alignItems: 'center' },
+  compactInput: { height: 28 },
+  inlineLine: { flexDirection: 'row', alignItems: 'center', gap: SPACING.sm, marginBottom: SPACING.sm },
+  inlineLabel: { minWidth: 122, fontSize: 12, color: COLORS.textDark },
   saveBtn: {
     alignSelf: 'flex-end',
     marginTop: SPACING.xl,
     backgroundColor: COLORS.primary,
-    paddingHorizontal: SPACING.lg,
+    paddingHorizontal: SPACING.md,
     paddingVertical: SPACING.md,
-    borderRadius: RADIUS.md,
+    borderRadius: RADIUS.sm,
+    ...SHADOWS.medium,
   },
-  saveText: { color: COLORS.white, fontSize: FONTS.sizes.lg, fontWeight: '700' },
+  saveText: { color: COLORS.white, fontSize: 18, fontWeight: '900' },
 });

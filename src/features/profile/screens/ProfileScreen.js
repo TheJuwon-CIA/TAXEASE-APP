@@ -1,17 +1,25 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import AppText from '../../../components/AppText';
+import { useAuth } from '../../../providers/AuthProvider';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS, FONTS, SPACING, RADIUS, SHADOWS } from '../../../theme/tokens';
 
 const Section = ({ title, items }) => (
   <View style={styles.section}>
-    <Text style={styles.sectionTitle}>{title}</Text>
-    {items.map((item) => <Text key={item} style={styles.item}>{item}</Text>)}
+    <AppText style={styles.sectionTitle}>{title}</AppText>
+    {items.map((item) => <AppText key={item} style={styles.item}>{item}</AppText>)}
   </View>
 );
 
 const ProfileScreen = ({ navigation }) => {
+  const { logout } = useAuth();  // ← add this
+
+  const handleSignOut = async () => {
+    await logout();  // ← this sets token to null, which switches the stack automatically
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
@@ -23,16 +31,21 @@ const ProfileScreen = ({ navigation }) => {
           <View style={styles.avatar}>
             <Ionicons name="person" size={64} color={COLORS.white} />
           </View>
-          <Text style={styles.name}>John Doe</Text>
-          <Text style={styles.email}>Johndoe@gmail.com</Text>
+          <AppText style={styles.name}>John Doe</AppText>
+          <AppText style={styles.email}>Johndoe@gmail.com</AppText>
           <TouchableOpacity style={styles.editBtn}>
-            <Text style={styles.editText}>Edit Profile</Text>
+            <AppText style={styles.editText}>Edit Profile</AppText>
           </TouchableOpacity>
         </View>
 
-        <Section title="Payment Info" items={['Tax summary', 'Payment Method']} />
+        <Section title="Tax Info" items={['Tax summary', 'Calculation history']} />
         <Section title="Settings" items={['Language', 'Theme', 'Notification', 'Contact support']} />
         <Section title="About Us" items={['Taxease', 'FAQs']} />
+
+        <TouchableOpacity style={styles.signOutBtn} onPress={handleSignOut}>
+          <Ionicons name="log-out-outline" size={22} color={COLORS.error} />
+          <AppText style={styles.signOutText}>Sign Out</AppText>
+        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );
@@ -51,6 +64,13 @@ const styles = StyleSheet.create({
   section: { backgroundColor: COLORS.white, borderRadius: RADIUS.md, padding: SPACING.md, marginBottom: SPACING.xl, ...SHADOWS.medium },
   sectionTitle: { fontSize: 28, fontWeight: '900', color: COLORS.black, marginBottom: SPACING.md },
   item: { fontSize: 22, color: COLORS.black, marginBottom: SPACING.md },
+  signOutBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: SPACING.sm,
+    paddingVertical: SPACING.md,
+  },
+  signOutText: { fontSize: 22, fontWeight: '800', color: COLORS.error },
 });
 
 export default ProfileScreen;

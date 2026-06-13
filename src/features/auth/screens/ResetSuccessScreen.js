@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import AppText from '../../../components/AppText';
+import { View, StyleSheet, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Button from '../../../components/ui/Button';
 import { COLORS, FONTS, SPACING } from '../../../theme/tokens';
@@ -11,11 +12,11 @@ const ResetSuccessScreen = ({ navigation }) => {
       <View style={styles.center}>
         <Image source={appImages.success} style={styles.successImage} resizeMode="contain" />
 
-        <Text style={styles.title}>Password Reset{'\n'}Successful</Text>
-        <Text style={styles.subtitle}>
+        <AppText style={styles.title}>Password Reset{'\n'}Successful</AppText>
+        <AppText style={styles.subtitle}>
           Your password has been updated.{'\n'}
           You can use your new password to log in your Taxease account.
-        </Text>
+        </AppText>
       </View>
 
       <View style={styles.bottom}>

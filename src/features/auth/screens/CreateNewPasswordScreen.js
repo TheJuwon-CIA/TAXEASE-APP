@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import AppText from '../../../components/AppText';
 import {
   View,
-  Text,
   StyleSheet,
   TouchableOpacity,
   ScrollView,
@@ -50,10 +50,10 @@ const CreateNewPasswordScreen = ({ navigation, route }) => {
           <Ionicons name="lock-closed" size={60} color={COLORS.primaryLight} />
         </View>
 
-        <Text style={styles.title}>Create New Password</Text>
-        <Text style={styles.subtitle}>
+        <AppText style={styles.title}>Create New Password</AppText>
+        <AppText style={styles.subtitle}>
           Please use a strong, new password that you haven't used before.
-        </Text>
+        </AppText>
 
         <InputField
           placeholder="New Password"
@@ -88,14 +88,14 @@ const CreateNewPasswordScreen = ({ navigation, route }) => {
                   size={16}
                   color={passed ? COLORS.primaryLight : COLORS.gray400}
                 />
-                <Text
+                <AppText
                   style={[
                     styles.ruleText,
                     passed && styles.ruleTextPassed,
                   ]}
                 >
                   {rule.label}
-                </Text>
+                </AppText>
               </View>
             );
           })}

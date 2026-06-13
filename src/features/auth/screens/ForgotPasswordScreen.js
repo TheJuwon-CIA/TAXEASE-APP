@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import AppText from '../../../components/AppText';
 import {
   View,
-  Text,
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
@@ -30,10 +30,10 @@ const ForgotPasswordScreen = ({ navigation }) => {
       </TouchableOpacity>
 
       <View style={styles.content}>
-        <Text style={styles.title}>Forgot Password</Text>
-        <Text style={styles.subtitle}>
+        <AppText style={styles.title}>Forgot Password</AppText>
+        <AppText style={styles.subtitle}>
           Enter the email address associated with your Taxease account
-        </Text>
+        </AppText>
 
         <InputField
           placeholder="Email Address"

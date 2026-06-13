@@ -5,7 +5,6 @@ import { Platform } from 'react-native';
 
 import HomeScreen from '../features/dashboard/screens/HomeScreen';
 import CalculatorScreen from '../features/calculator/screens/CalculatorScreen';
-import ReceiptsScreen from '../features/receipts/screens/ReceiptsScreen';
 import ProfileScreen from '../features/profile/screens/ProfileScreen';
 
 import { COLORS, FONTS } from '../theme/tokens';
@@ -40,7 +39,6 @@ const MainTabNavigator = () => {
           const icons = {
             Home: focused ? 'grid' : 'grid-outline',
             Calculator: focused ? 'calculator' : 'calculator-outline',
-            Receipts: focused ? 'document-text' : 'document-text-outline',
             Profile: focused ? 'person' : 'person-outline',
           };
           return (
@@ -51,7 +49,6 @@ const MainTabNavigator = () => {
     >
       <Tab.Screen name="Home" component={HomeScreen} options={{ title: 'Dashboard' }} />
       <Tab.Screen name="Calculator" component={CalculatorScreen} />
-      <Tab.Screen name="Receipts" component={ReceiptsScreen} options={{ title: 'History' }} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );

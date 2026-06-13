@@ -1,10 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
+import AppText from '../../../components/AppText';
 import {
   View,
-  Text,
-  FlatList,
   StyleSheet,
-  Dimensions,
   TouchableOpacity,
   Image,
 } from 'react-native';
@@ -15,127 +13,107 @@ import { COLORS, FONTS, SPACING } from '../../../theme/tokens';
 import { useAuth } from '../../../providers/AuthProvider';
 import { appImages } from '../../../lib/assets';
 
-const { width } = Dimensions.get('window');
-
 const SLIDES = [
   {
     id: '1',
-    title: 'Calculate Your\n',
-    titleHighlight: 'Taxes',
-    titleSuffix: ' Easily!',
+    title: 'Calculate Your Taxes Easily',
     subtitle:
       'Get accurate tax estimates in seconds with our smart and simple tax calculator.',
-    isFirst: true,
+    image: appImages.logo,
+    logoOnly: true,
   },
   {
     id: '2',
     title: 'Learn About Taxes',
     subtitle:
-      'Understand tax rules, payment processes, and financial responsibilities with easy-to-follow guides',
+      'Understand tax rules, deductions, and financial responsibilities with easy-to-follow guides.',
     image: appImages.onboardingLearnTaxes,
   },
   {
     id: '3',
-    title: 'Pay Taxes Securely',
+    title: 'Calculate PAYE Accurately',
+    highlight: 'PAYE',
     subtitle:
-      'Make fast and secure tax payments directly from this app, anytime, anywhere.',
-    image: appImages.onboardingPaySecurely,
+      'Enter your income and deductions to estimate your monthly tax and take-home pay.',
+    image: appImages.individualCard,
   },
   {
     id: '4',
-    title: 'Access Your ',
-    titleHighlight: 'Receipts',
-    titleSuffix: '\nAnytime',
+    title: 'Review Your Results',
     subtitle:
-      'Download and store your payment receipts for easy tracking and future reference',
-    image: appImages.onboardingReceipts,
-    isLast: true,
+      'See a clear breakdown of gross income, deductions, tax, and final net salary.',
+    image: appImages.historyCard,
   },
 ];
 
-const OnboardingItem = ({ item }) => {
+const splitTitle = (title, highlight) => {
+  if (!highlight) return <AppText style={styles.title}>{title}</AppText>;
+  const [before, after] = title.split(highlight);
   return (
-    <View style={[styles.slide, { width }]}>
-      <View style={styles.topRow}>
-        <TaxeaseLogo size={46} showText={false} />
-        <TouchableOpacity>
-          <Text style={styles.skipText}>Skip</Text>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.artWrap}>
-        {item.isFirst ? (
-          <TaxeaseLogo size={156} showText={false} />
-        ) : (
-          <Image source={item.image} style={styles.slideImage} resizeMode="cover" />
-        )}
-      </View>
-
-      <View style={styles.copy}>
-        <Text style={styles.slideTitle}>
-          {item.title}
-          {item.titleHighlight ? (
-            <Text style={styles.slideGreen}>{item.titleHighlight}</Text>
-          ) : null}
-          {item.titleSuffix || ''}
-        </Text>
-        <Text style={styles.slideSubtitle}>{item.subtitle}</Text>
-      </View>
-    </View>
+    <AppText style={styles.title}>
+      {before}
+      <AppText style={styles.green}>{highlight}</AppText>
+      {after}
+    </AppText>
   );
 };
 
 const OnboardingScreen = ({ navigation }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const flatListRef = useRef(null);
   const { completeOnboarding } = useAuth();
+  const current = SLIDES[currentIndex];
+  const isLast = currentIndex === SLIDES.length - 1;
 
-  const handleNext = () => {
-    if (currentIndex < SLIDES.length - 1) {
-      flatListRef.current?.scrollToIndex({ index: currentIndex + 1 });
-      setCurrentIndex((prev) => prev + 1);
-    } else {
-      handleGetStarted();
+  const goNext = async () => {
+    if (!isLast) {
+      setCurrentIndex((index) => index + 1);
+      return;
     }
-  };
-
-  const handleGetStarted = async () => {
     await completeOnboarding();
     navigation.replace('GetStarted');
   };
 
-  const onViewableItemsChanged = useRef(({ viewableItems }) => {
-    if (viewableItems.length > 0) {
-      setCurrentIndex(viewableItems[0].index);
-    }
-  }).current;
+  const skip = async () => {
+    await completeOnboarding();
+    navigation.replace('GetStarted');
+  };
 
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList
-        ref={flatListRef}
-        data={SLIDES}
-        keyExtractor={(item) => item.id}
-        horizontal
-        pagingEnabled
-        showsHorizontalScrollIndicator={false}
-        onViewableItemsChanged={onViewableItemsChanged}
-        viewabilityConfig={{ itemVisiblePercentThreshold: 50 }}
-        renderItem={({ item }) => <OnboardingItem item={item} />}
-      />
+      <View style={styles.content}>
+        <View style={styles.topRow}>
+          <TaxeaseLogo size={28} showText={false} />
+          <TouchableOpacity onPress={skip}>
+            <Text style={styles.skip}>Skip</Text>
+          </TouchableOpacity>
+        </View>
 
-      <View style={styles.bottomBar}>
+        <View style={styles.imageWrap}>
+          {current.logoOnly ? (
+            <TaxeaseLogo size={148} showText={false} />
+          ) : (
+            <Image source={current.image} style={styles.heroImage} resizeMode="cover" />
+          )}
+        </View>
+
+        <View style={styles.copy}>
+          {splitTitle(current.title, current.highlight)}
+          <Text style={styles.subtitle}>{current.subtitle}</Text>
+        </View>
+      </View>
+
+      <View style={styles.bottom}>
         <Button
-          title={currentIndex === SLIDES.length - 1 ? 'Get Started' : 'Next'}
-          onPress={handleNext}
-          style={styles.nextBtn}
+          title={isLast ? 'Get Started' : 'Next'}
+          onPress={goNext}
+          style={styles.nextButton}
           textStyle={styles.nextText}
         />
         <View style={styles.dots}>
-          {SLIDES.map((_, i) => (
+          {SLIDES.map((slide, index) => (
             <View
-              key={i}
-              style={[styles.dot, i === currentIndex && styles.activeDot]}
+              key={slide.id}
+              style={[styles.dot, index === currentIndex && styles.activeDot]}
             />
           ))}
         </View>
@@ -145,84 +123,48 @@ const OnboardingScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: COLORS.white,
-  },
-  slide: {
-    flex: 1,
-    paddingHorizontal: SPACING.lg,
-    paddingTop: SPACING.xl,
-  },
+  container: { flex: 1, backgroundColor: COLORS.white },
+  content: { flex: 1, paddingHorizontal: SPACING.lg, paddingTop: SPACING.xl },
   topRow: {
-    minHeight: 72,
+    height: 92,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  skipText: {
-    fontSize: 28,
-    color: '#D1D1D1',
-    fontWeight: '400',
-  },
-  artWrap: {
-    height: Math.min(width * 0.72, 380),
+  skip: { fontSize: FONTS.sizes.md, color: '#D2D2D2' },
+  imageWrap: {
+    height: 280,
     justifyContent: 'center',
     alignItems: 'center',
     overflow: 'hidden',
-    marginTop: SPACING.lg,
-  },
-  slideImage: {
-    width: '116%',
-    height: '118%',
-  },
-  copy: {
-    marginTop: SPACING.xl,
-  },
-  slideTitle: {
-    fontSize: 56,
-    lineHeight: 66,
-    fontWeight: '800',
-    color: COLORS.textDark,
     marginBottom: SPACING.xl,
   },
-  slideGreen: {
-    color: COLORS.primaryLight,
+  heroImage: { width: '100%', height: '100%' },
+  copy: { minHeight: 160 },
+  title: {
+    fontSize: 32,
+    lineHeight: 38,
+    color: COLORS.textDark,
+    fontWeight: '800',
+    marginBottom: SPACING.lg,
   },
-  slideSubtitle: {
-    fontSize: 28,
-    lineHeight: 42,
+  green: { color: COLORS.primary },
+  subtitle: {
+    fontSize: 15,
+    lineHeight: 23,
     color: COLORS.black,
     fontWeight: '500',
   },
-  bottomBar: {
+  bottom: {
     paddingHorizontal: SPACING.lg,
-    paddingBottom: SPACING.lg,
+    paddingBottom: SPACING.xl,
     alignItems: 'center',
   },
-  nextBtn: {
-    width: '100%',
-    minHeight: 78,
-    borderRadius: 28,
-  },
-  nextText: {
-    fontSize: 32,
-    fontWeight: '800',
-  },
-  dots: {
-    flexDirection: 'row',
-    marginTop: SPACING.xl,
-    gap: SPACING.sm,
-  },
-  dot: {
-    width: 18,
-    height: 18,
-    borderRadius: 9,
-    backgroundColor: '#D1D1D1',
-  },
-  activeDot: {
-    backgroundColor: COLORS.black,
-  },
+  nextButton: { width: '100%', minHeight: 58, borderRadius: 10 },
+  nextText: { fontSize: 18, fontWeight: '800' },
+  dots: { flexDirection: 'row', gap: 8, marginTop: SPACING.xl },
+  dot: { width: 10, height: 10, borderRadius: 5, backgroundColor: '#D1D1D1' },
+  activeDot: { backgroundColor: COLORS.black },
 });
 
 export default OnboardingScreen;

@@ -24,9 +24,9 @@ export const COLORS = {
 };
 
 export const FONTS = {
-  regular: 'System',
-  medium: 'System',
-  bold: 'System',
+  regular: 'Poppins-Regular',
+  medium: 'Poppins-Medium',
+  bold: 'Poppins-Bold',
   sizes: {
     tiny: 7,
     xs: 9,
@@ -55,7 +55,7 @@ export const SPACING = {
 };
 
 export const RADIUS = {
-  sm: 8,
+  sm: 10,
   md: 16,
   lg: 16,
   xl: 16,

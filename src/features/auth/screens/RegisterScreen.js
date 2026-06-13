@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import AppText from '../../../components/AppText';
 import {
   View,
-  Text,
   StyleSheet,
   TouchableOpacity,
   ScrollView,
@@ -47,25 +47,15 @@ const RegisterScreen = ({ navigation }) => {
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
       >
-        {/* Back */}
         <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
           <Ionicons name="chevron-back" size={26} color={COLORS.textDark} />
         </TouchableOpacity>
 
-        {/* Title */}
-        <Text style={styles.title}>Create Account</Text>
-        <Text style={styles.subtitle}>
+        <AppText style={styles.title}>Create Account</AppText>
+        <AppText style={styles.subtitle}>
           Create An Account With Taxease To Get Started
-        </Text>
+        </AppText>
 
-        {/* Form */}
-        <InputField
-          placeholder="Email Address"
-          value={form.email}
-          onChangeText={(v) => updateField('email', v)}
-          keyboardType="email-address"
-          error={errors.email}
-        />
         <InputField
           placeholder="First Name"
           value={form.firstName}
@@ -79,6 +69,13 @@ const RegisterScreen = ({ navigation }) => {
           onChangeText={(v) => updateField('lastName', v)}
           autoCapitalize="words"
           error={errors.lastName}
+        />
+        <InputField
+          placeholder="Email Address"
+          value={form.email}
+          onChangeText={(v) => updateField('email', v)}
+          keyboardType="email-address"
+          error={errors.email}
         />
         <InputField
           placeholder="Create Password"
@@ -95,7 +92,6 @@ const RegisterScreen = ({ navigation }) => {
           error={errors.confirmPassword}
         />
 
-        {/* Terms */}
         <TouchableOpacity
           style={styles.termsRow}
           onPress={() => setAgreeTerms(!agreeTerms)}
@@ -105,13 +101,12 @@ const RegisterScreen = ({ navigation }) => {
               <Ionicons name="checkmark" size={14} color={COLORS.white} />
             )}
           </View>
-          <Text style={styles.termsText}>I agree to the Terms of Service</Text>
+          <AppText style={styles.termsText}>I agree to the Terms of Service</AppText>
         </TouchableOpacity>
         {errors.terms ? (
-          <Text style={styles.errorText}>{errors.terms}</Text>
+          <AppText style={styles.errorText}>{errors.terms}</AppText>
         ) : null}
 
-        {/* Register button */}
         <Button
           title="Register"
           onPress={handleRegister}
@@ -119,15 +114,14 @@ const RegisterScreen = ({ navigation }) => {
           style={styles.registerBtn}
         />
 
-        {/* Log in link */}
         <View style={styles.loginRow}>
-          <Text style={styles.loginText}>Do you have an account? </Text>
+          <AppText style={styles.loginText}>Do you have an account? </AppText>
           <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-            <Text style={styles.loginLink}>Log In</Text>
+            <AppText style={styles.loginLink}>Log In</AppText>
           </TouchableOpacity>
         </View>
 
-        <Text style={styles.orText}>OR</Text>
+        <AppText style={styles.orText}>OR</AppText>
 
         <Button
           title="Login Using Google"

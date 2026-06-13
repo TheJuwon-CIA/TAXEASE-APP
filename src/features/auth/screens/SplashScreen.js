@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import AppText from '../../../components/AppText';
 import { COLORS } from '../../../theme/tokens';
 import TaxeaseLogo from '../../../components/ui/TaxeaseLogo';
 
@@ -14,7 +15,7 @@ const SplashScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <TaxeaseLogo size={130} textSize={40} />
-      <Text style={styles.tagline}>Finance and tax management simplified</Text>
+      <AppText style={styles.tagline}>Finance and tax management simplified</AppText>
     </View>
   );
 };

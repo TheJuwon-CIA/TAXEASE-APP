@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image } from 'react-native';
+import AppText from '../../../components/AppText';
 import { COLORS } from '../../theme/tokens';
 import { appImages } from '../../lib/assets';
 
@@ -12,7 +13,7 @@ const TaxeaseLogo = ({ size = 80, showText = true, textSize = 32 }) => {
         resizeMode="contain"
       />
       {showText && (
-        <Text style={[styles.wordmark, { fontSize: textSize }]}>Taxease</Text>
+        <AppText style={[styles.wordmark, { fontSize: textSize }]}>Taxease</AppText>
       )}
     </View>
   );

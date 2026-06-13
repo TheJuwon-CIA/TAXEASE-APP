@@ -1,5 +1,6 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import AppText from '../../../components/AppText';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS, FONTS, RADIUS, SHADOWS, SPACING } from '../../../theme/tokens';
@@ -44,10 +45,10 @@ const ResourceCard = ({ title, body, type, active, onPress }) => (
 export const EducationalResourcesScreen = ({ navigation }) => (
   <SafeAreaView style={styles.container}>
     <ScrollView contentContainerStyle={styles.resourcesContent} showsVerticalScrollIndicator={false}>
-      <Text style={styles.resourcesPill}>Educational Resources</Text>
-      <Text style={styles.learnTitle}>
-        Learn more about <Text style={styles.green}>taxes</Text>{'\n'}and <Text style={styles.green}>Payments</Text>
-      </Text>
+      <AppText style={styles.resourcesPill}>Educational Resources</AppText>
+      <AppText style={styles.learnTitle}>
+        Learn more about <AppText style={styles.green}>taxes</AppText>{'\n'}and <AppText style={styles.green}>Deductions</AppText>
+      </AppText>
       <View style={styles.resourceList}>
         <ResourceCard
           title="Tax Basics: "
@@ -83,7 +84,7 @@ export const EducationalResourcesScreen = ({ navigation }) => (
 const Bullet = ({ children }) => (
   <View style={styles.bulletRow}>
     <View style={styles.bulletDot} />
-    <Text style={styles.bulletText}>{children}</Text>
+    <AppText style={styles.bulletText}>{children}</AppText>
   </View>
 );
 
@@ -91,10 +92,10 @@ export const TaxBasicsScreen = ({ navigation }) => (
   <SafeAreaView style={styles.container}>
     <ScrollView contentContainerStyle={styles.articleContent} showsVerticalScrollIndicator={false}>
       <BackButton navigation={navigation} />
-      <Text style={styles.articlePill}>TAX BASICS</Text>
-      <Text style={styles.articleHeading}>What is <Text style={styles.green}>Tax?</Text></Text>
-      <Text style={styles.articleBody}>Tax is a compulsory contribution paid to the government to support public services.</Text>
-      <Text style={styles.articleHeading}>Why do we pay <Text style={styles.green}>Tax?</Text></Text>
+      <AppText style={styles.articlePill}>TAX BASICS</AppText>
+      <AppText style={styles.articleHeading}>What is <AppText style={styles.green}>Tax?</AppText></AppText>
+      <AppText style={styles.articleBody}>Tax is a compulsory contribution paid to the government to support public services.</AppText>
+      <AppText style={styles.articleHeading}>Why do we pay <AppText style={styles.green}>Tax?</AppText></AppText>
       <Bullet>Road Construction</Bullet>
       <Bullet>Healthcare</Bullet>
       <Bullet>Education</Bullet>
@@ -108,9 +109,9 @@ export const DeductionGuideScreen = ({ navigation }) => (
   <SafeAreaView style={styles.container}>
     <ScrollView contentContainerStyle={styles.articleContent} showsVerticalScrollIndicator={false}>
       <BackButton navigation={navigation} />
-      <Text style={styles.darkArticleTitle}>DEDUCTION GUIDE</Text>
-      <Text style={styles.articleBody}>Tax deductions are amounts removed from your income before or after tax calculation.</Text>
-      <Text style={styles.articleHeading}>Common <Text style={styles.green}>deductions</Text>{'\n'}include:</Text>
+      <AppText style={styles.darkArticleTitle}>DEDUCTION GUIDE</AppText>
+      <AppText style={styles.articleBody}>Tax deductions are amounts removed from your income before or after tax calculation.</AppText>
+      <AppText style={styles.articleHeading}>Common <AppText style={styles.green}>deductions</AppText>{'\n'}include:</AppText>
       <Bullet>Pension contributions</Bullet>
       <Bullet>Health insurance</Bullet>
       <Bullet>National insurance</Bullet>
@@ -135,12 +136,12 @@ export const FAQsScreen = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.faqContent} showsVerticalScrollIndicator={false}>
         <BackButton navigation={navigation} />
-        <Text style={styles.darkArticleTitle}>FAQs</Text>
+        <AppText style={styles.darkArticleTitle}>FAQs</AppText>
         <View style={styles.faqList}>
           {questions.map((question) => (
             <TouchableOpacity key={question} style={styles.faqRow}>
               <View style={styles.faqDot} />
-              <Text style={styles.faqQuestion}>{question}</Text>
+              <AppText style={styles.faqQuestion}>{question}</AppText>
               <Ionicons name="caret-down" size={22} color={COLORS.black} />
             </TouchableOpacity>
           ))}
@@ -153,9 +154,9 @@ export const FAQsScreen = ({ navigation }) => {
 
 const videos = [
   ['How to Calculate Your Tax', '3 mins'],
-  ['How to make Payments', '2 mins'],
+  ['How to read your tax result', '2 mins'],
   ['Understanding tax deductions', '4 mins'],
-  ['How to Download receipts', '2 mins'],
+  ['How to estimate net salary', '2 mins'],
   ['Avoid common filling mistakes', '4 mins'],
 ];
 
@@ -172,14 +173,14 @@ export const VideoTutorialsScreen = ({ navigation }) => (
   <SafeAreaView style={styles.container}>
     <ScrollView contentContainerStyle={styles.videoContent} showsVerticalScrollIndicator={false}>
       <BackButton navigation={navigation} />
-      <Text style={styles.darkArticleTitle}>Video Tutorials</Text>
+      <AppText style={styles.darkArticleTitle}>Video Tutorials</AppText>
       <View style={styles.videoList}>
         {videos.map(([title, time]) => (
           <TouchableOpacity key={title} style={styles.videoRow}>
             <VideoThumb />
             <View style={styles.videoCopy}>
-              <Text style={styles.videoTitle}>{title}</Text>
-              <Text style={styles.videoTime}>{time}</Text>
+              <AppText style={styles.videoTitle}>{title}</AppText>
+              <AppText style={styles.videoTime}>{time}</AppText>
             </View>
           </TouchableOpacity>
         ))}

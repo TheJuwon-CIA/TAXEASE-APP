@@ -1,11 +1,11 @@
 import React from 'react';
 import {
   TouchableOpacity,
-  Text,
   StyleSheet,
   ActivityIndicator,
   View,
 } from 'react-native';
+import AppText from '../../../components/AppText';
 import { COLORS, RADIUS, FONTS, SPACING } from '../../theme/tokens';
 
 const Button = ({
@@ -40,9 +40,9 @@ const Button = ({
       ) : (
         <View style={styles.content}>
           {icon && <View style={styles.iconWrap}>{icon}</View>}
-          <Text style={[styles.text, styles[`${variant}Text`], textStyle]}>
+          <AppText style={[styles.text, styles[`${variant}Text`], textStyle]}>
             {title}
-          </Text>
+          </AppText>
         </View>
       )}
     </TouchableOpacity>

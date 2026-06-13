@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, ImageBackground } from 'react-native';
+import AppText from '../../../components/AppText';
+import { View, StyleSheet, TouchableOpacity, ScrollView, ImageBackground } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS, FONTS, SPACING, RADIUS, SHADOWS } from '../../../theme/tokens';
@@ -26,19 +27,26 @@ const ProfileTypeScreen = ({ navigation }) => {
           <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
             <Ionicons name="arrow-back-circle-outline" size={31} color={COLORS.black} />
           </TouchableOpacity>
-          <Text style={styles.title}>Profile Type</Text>
+          <AppText style={styles.title}>Profile Type</AppText>
           <View style={styles.headerSpacer} />
         </View>
-        <Text style={styles.subtitle}>Select the option that describes you :</Text>
+        <AppText style={styles.subtitle}>Select the option that describes you :</AppText>
 
         {OPTIONS.map((item) => (
-          <ImageBackground key={item.title} source={item.image} style={styles.card} imageStyle={styles.cardImage}>
-            <View style={styles.cardFade} />
+          <View key={item.title} style={styles.cardWrapper}>
+          <ImageBackground
+            key={item.title}
+            source={item.image}
+            resizeMode="cover"
+            style={styles.card}
+            imageStyle={styles.cardImage}
+          >
             <Text style={styles.cardTitle}>{item.title}</Text>
             <TouchableOpacity style={styles.selectBtn} onPress={() => navigation.navigate(item.route)}>
               <Text style={styles.selectText}>Select</Text>
             </TouchableOpacity>
           </ImageBackground>
+          </View>
         ))}
       </ScrollView>
     </SafeAreaView>
@@ -64,19 +72,21 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   subtitle: { fontSize: 15, color: '#424B5A', marginBottom: SPACING.md },
-  card: {
-    height: 174,
+  cardWrapper: {
+  borderRadius: RADIUS.lg,
+  marginBottom: SPACING.xl,
+
+},
+card: {
+  height: 174,
+  borderRadius: RADIUS.lg,
+  overflow: 'hidden',  // clip lives here, no shadow
+  padding: SPACING.md,
+  justifyContent: 'space-between',
+},
+  cardImage: {
     borderRadius: RADIUS.lg,
-    overflow: 'hidden',
-    marginBottom: SPACING.xl,
-    padding: SPACING.md,
-    justifyContent: 'space-between',
-    ...SHADOWS.medium,
-  },
-  cardImage: { borderRadius: RADIUS.lg },
-  cardFade: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(255,255,255,0.66)',
+    opacity: 0.4,
   },
   cardTitle: { fontSize: 20, fontWeight: '900', color: COLORS.textDark },
   selectBtn: {

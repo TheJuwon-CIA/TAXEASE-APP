@@ -1,7 +1,7 @@
 import React from 'react';
+import AppText from '../../../components/AppText';
 import {
   View,
-  Text,
   StyleSheet,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -15,7 +15,7 @@ const GetStartedScreen = ({ navigation }) => {
       {/* Center content */}
       <View style={styles.center}>
         <TaxeaseLogo size={100} textSize={36} />
-        <Text style={styles.tagline}>Finance and tax management{'\n'}simplified</Text>
+        <AppText style={styles.tagline}>Finance and tax management{'\n'}simplified</AppText>
       </View>
 
       {/* Bottom buttons */}
