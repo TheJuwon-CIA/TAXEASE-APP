@@ -58,8 +58,8 @@ const Header = ({ navigation, business }) => (
       <Ionicons name="person" size={30} color={COLORS.white} />
     </View>
     <View>
-      <AppText style={styles.morning}>{business ? 'Doe Enterprises' : 'Good Morning'}</AppText>
-      <AppText style={styles.name}>{business ? '' : 'John Doe'}</AppText>
+      <AppText style={styles.morning}>Welcome!</AppText>
+<AppText style={styles.name}>{business ? 'Doe Enterprises' : 'John Doe'}</AppText>
     </View>
     <TouchableOpacity style={styles.bell} onPress={() => navigation.navigate('Notifications')}>
       <Ionicons name="notifications" size={business ? 23 : 34} color={COLORS.primary} />
@@ -81,12 +81,12 @@ const BusinessDashboard = ({ navigation }) => (
         <MetricCard title="WHT" lines={['(Withholding tax)', 'View Deductions', 'Aug', 'Jul']} action="Check" image={appImages.historyCard} onPress={() => navigation.navigate('SMEDeductions')} />
       </View>
       <DashboardCard
-        title="EDUCATIONAL RESOURCES"
-        subtitle="Know more about PAYE and taxation in Nigeria"
-        action="Learn"
-        image={appImages.educationCard}
-        onPress={() => navigation.navigate('EducationalResources')}
-      />
+  title="LEARNING HUB"
+  subtitle="Know more about PAYE and taxation in Nigeria"
+  action="Learn"
+  image={appImages.educationCard}
+  onPress={() => navigation.navigate('EducationalResources')}
+/>
     </ScrollView>
   </SafeAreaView>
 );
@@ -195,21 +195,22 @@ const styles = StyleSheet.create({
     borderRadius: RADIUS.sm,
     paddingHorizontal: SPACING.md,
     paddingVertical: 10,
-    ...SHADOWS.medium,
+   
   },
   actionText: { color: COLORS.white, fontWeight: '900', fontSize: 20 },
-  smallAction: { paddingHorizontal: SPACING.xs, paddingVertical: 4, gap: 2 },
+  smallAction: { paddingHorizontal: SPACING.sm, paddingVertical: 6, gap: 2 },
   smallActionText: { fontSize: 9 },
   card: {
     height: 185,
-    borderRadius: 26,
+    borderRadius: 30,
     padding: SPACING.sm,
     overflow: 'hidden',
     marginBottom: SPACING.lg,
     justifyContent: 'space-between',
-    ...SHADOWS.medium,
+    ...SHADOWS.small,
+    
   },
-  cardImage: { borderRadius: 26, opacity: 0.3 },
+  cardImage: { borderRadius: 26, opacity: 0.5 },
   cardTitle: { fontSize: 28, fontWeight: '900', color: COLORS.textDark },
   cardSubtitle: { fontSize: 22, color: COLORS.textDark, maxWidth: '64%', lineHeight: 31 },
   businessInfo: {
@@ -218,37 +219,40 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     padding: SPACING.md,
     marginBottom: SPACING.lg,
-    ...SHADOWS.medium,
+      justifyContent: 'center',
   },
-  businessInfoImage: { borderRadius: RADIUS.md, opacity: 0.4 },
+  businessInfoImage: { borderRadius: RADIUS.sm, opacity: 0.4 },
   businessInfoTitle: { fontSize: 15, fontWeight: '900', color: COLORS.textDark, marginBottom: SPACING.md },
   businessInfoRow: { flexDirection: 'row', justifyContent: 'space-between', paddingRight: SPACING.md },
   miniLabel: { fontSize: 8, color: COLORS.textDark },
   miniValue: { fontSize: 8, color: COLORS.black, fontWeight: '700' },
-  metricGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: SPACING.sm, marginBottom: SPACING.lg },
+  metricGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: SPACING.sm, marginBottom: SPACING.md },
   metricCard: {
-    width: '48%',
+    width: '%',
     height: 140,
     borderRadius: RADIUS.md,
     overflow: 'hidden',
     padding: SPACING.sm,
     justifyContent: 'space-between',
-    ...SHADOWS.medium,
+      ...SHADOWS.xsmall,
+    
   },
-  metricImage: { borderRadius: RADIUS.md, opacity: 0.4 },
+  metricImage: { borderRadius: RADIUS.md, opacity: 0.2,  },
   metricTitle: { fontSize: 15, fontWeight: '900', color: COLORS.textDark },
   metricLine: { fontSize: 8, color: COLORS.black },
   tabHeader: { flexDirection: 'row', gap: SPACING.xl, marginLeft: SPACING.md, marginBottom: SPACING.sm },
   activeHistory: { fontSize: 24, fontWeight: '900', color: COLORS.black, borderBottomWidth: 3 },
   stats: { fontSize: 24, color: COLORS.black },
   historyCard: {
+    width: '100%',
     minHeight: 245,
     borderRadius: 26,
     overflow: 'hidden',
     padding: SPACING.md,
-    ...SHADOWS.medium,
+    ...SHADOWS.small,
+    
   },
-  historyImage: { borderRadius: 26, opacity: 0.4 },
+  historyImage: { borderRadius: 26, opacity: 0.3 },
   historyTitle: { fontSize: 20, fontWeight: '900', color: COLORS.black, marginBottom: SPACING.sm },
   historyText: { fontSize: 20, fontWeight: '800', color: COLORS.black, marginBottom: SPACING.sm },
   historyLine: { fontSize: 20, color: COLORS.black, marginBottom: SPACING.xs },

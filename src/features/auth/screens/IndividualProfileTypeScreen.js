@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     ...SHADOWS.medium,
   },
-  cardImage: { borderRadius: RADIUS.lg },
+  cardImage: { borderRadius: RADIUS.lg, opacity: 0.4, width: 'fit-content', },
   cardFade: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(255,255,255,0.62)' },
   mutedCard: { backgroundColor: '#FFFFFF', shadowOpacity: 0 },
   mutedFade: { backgroundColor: 'rgba(255,255,255,0.75)' },
